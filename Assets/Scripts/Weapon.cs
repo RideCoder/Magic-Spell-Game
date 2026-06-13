@@ -22,6 +22,6 @@ public class Weapon : MonoBehaviour
     {
         Projectile clone = Instantiate(projectile);
         clone.transform.position = Camera.main.transform.position;
-        clone.direction = player.aimPosition.normalized * Time.deltaTime * 10f ;
+        clone.direction = player.aimPosition.normalized * Time.deltaTime *25f ;
     }
 }

@@ -29,4 +29,9 @@ public class EnemyManager : MonoBehaviour
             enemy.Tick();
         }
     }
+    public void RemoveEnemy(Enemy enemy)
+    {
+        enemies.Remove(enemy);
+        Destroy(enemy.gameObject);
+    }
 }

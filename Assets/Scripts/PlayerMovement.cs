@@ -52,22 +52,22 @@ public class PlayerMovement : MonoBehaviour
             characterController.Move(new Vector3(0, yVel*Time.deltaTime, 0));
         if (Keyboard.current.wKey.isPressed)
         {
-            characterController.Move(new Vector3(Camera.main.transform.forward.x,0, Camera.main.transform.forward.z)* Time.deltaTime*10f);
+            characterController.Move(new Vector3(Camera.main.transform.forward.x,0, Camera.main.transform.forward.z)* Time.deltaTime*5f);
         }
 
         if (Keyboard.current.sKey.isPressed)
         {
-            characterController.Move(-new Vector3(Camera.main.transform.forward.x, 0, Camera.main.transform.forward.z) * Time.deltaTime * 10f);
+            characterController.Move(-new Vector3(Camera.main.transform.forward.x, 0, Camera.main.transform.forward.z) * Time.deltaTime * 5f);
         }
 
         if (Keyboard.current.aKey.isPressed)
         {
-            characterController.Move(-new Vector3(Camera.main.transform.right.x, 0, Camera.main.transform.right.z) * Time.deltaTime * 10f);
+            characterController.Move(-new Vector3(Camera.main.transform.right.x, 0, Camera.main.transform.right.z) * Time.deltaTime * 5f);
         }
 
         if (Keyboard.current.dKey.isPressed)
         {
-            characterController.Move(new Vector3(Camera.main.transform.right.x, 0, Camera.main.transform.right.z) * Time.deltaTime * 10f);
+            characterController.Move(new Vector3(Camera.main.transform.right.x, 0, Camera.main.transform.right.z) * Time.deltaTime * 5f);
         }
     }
 }

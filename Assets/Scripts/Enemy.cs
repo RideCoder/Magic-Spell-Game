@@ -1,9 +1,12 @@
+using System;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IDamageable
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public float health = 100f;
     public EnemyBehavior behavior;
+    public static event Action<Enemy, float> OnDamaged;
     void Start()
     {
         
@@ -13,5 +16,16 @@ public class Enemy : MonoBehaviour
     public void Tick()
     {
         behavior.Behavior(this);
+        
+    }
+
+    public void TakeDamage(float damage)
+    {
+        OnDamaged?.Invoke(this, damage);
+        health -= damage;
+        if (health <= 0f)
+        {
+            EnemyManager.Instance.RemoveEnemy(this);
+        }
     }
 }
