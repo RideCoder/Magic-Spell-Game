@@ -3,8 +3,8 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     public Projectile projectile;
-    public float cooldown = 1f;
-    public float currentCooldown = 1f;
+    public float cooldown = .01f;
+    public float currentCooldown = .01f;
 
     public Player player;
     public void Tick()
@@ -20,7 +20,6 @@ public class Weapon : MonoBehaviour
     }
     public void Fire()
     {
-        
 
 
         

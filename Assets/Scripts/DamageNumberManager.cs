@@ -14,7 +14,7 @@ public class DamageNumberManager : MonoBehaviour
     {
         GameObject clone = Instantiate(damageNumber);
         clone.transform.position = e.transform.position;
-        clone.transform.parent = e.transform;
+       
         clone.GetComponent<TMP_Text>().text = dmg.ToString();
     }
 }

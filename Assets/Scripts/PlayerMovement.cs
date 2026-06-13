@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public float zVel = 0f;
     float xRotation = 0f;
     float yRotation = 0f;
+    public float speed = 5f;
     public Vector2 oldMouseVel = Vector2.zero;
     public GameObject img;
     float imgx;
@@ -42,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
         }
             xRotation += -Mouse.current.delta.value.y;
             yRotation += Mouse.current.delta.value.x;
-         xRotation = Mathf.Clamp(xRotation, -135f, 135f);
+         xRotation = Mathf.Clamp(xRotation, -179f, 179f);
          Camera.main.transform.eulerAngles = new Vector3(xRotation, yRotation, 0)*.5f;
           
 
@@ -54,25 +55,30 @@ public class PlayerMovement : MonoBehaviour
         {
             yVel = 0f;
         }
+
+
+
             characterController.Move(new Vector3(0, yVel*Time.deltaTime, 0));
-        if (Keyboard.current.wKey.isPressed)
-        {
-            characterController.Move(new Vector3(Camera.main.transform.forward.x,0, Camera.main.transform.forward.z)* Time.deltaTime*5f);
-        }
 
-        if (Keyboard.current.sKey.isPressed)
-        {
-            characterController.Move(-new Vector3(Camera.main.transform.forward.x, 0, Camera.main.transform.forward.z) * Time.deltaTime * 5f);
-        }
 
-        if (Keyboard.current.aKey.isPressed)
-        {
-            characterController.Move(-new Vector3(Camera.main.transform.right.x, 0, Camera.main.transform.right.z) * Time.deltaTime * 5f);
-        }
+        Vector3 forward = Camera.main.transform.forward;
+        forward.y = 0;
+        forward.Normalize();
 
-        if (Keyboard.current.dKey.isPressed)
-        {
-            characterController.Move(new Vector3(Camera.main.transform.right.x, 0, Camera.main.transform.right.z) * Time.deltaTime * 5f);
-        }
+        Vector3 right = Camera.main.transform.right;
+        right.y = 0;
+        right.Normalize();
+
+        Vector3 move = Vector3.zero;
+
+        if (Keyboard.current.wKey.isPressed) move += forward;
+        if (Keyboard.current.sKey.isPressed) move -= forward;
+        if (Keyboard.current.aKey.isPressed) move -= right;
+        if (Keyboard.current.dKey.isPressed) move += right;
+
+        if (move.sqrMagnitude > 1)
+            move.Normalize(); // prevents diagonal speed boost
+
+        characterController.Move(move * Time.deltaTime * speed);
     }
 }

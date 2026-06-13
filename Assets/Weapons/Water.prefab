@@ -45,5 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Weapon
   projectile: {fileID: -4016434512282956031, guid: 361f61159050c3141862e2b2394f96c3, type: 3}
-  cooldown: 1
-  currentCooldown: 0.6237571
+  cooldown: 0.01
+  currentCooldown: 0.01
+  player: {fileID: 0}

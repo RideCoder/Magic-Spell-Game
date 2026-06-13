@@ -12,8 +12,9 @@ public class DamageNumber : MonoBehaviour
     void Update()
     {
         transform.position += new Vector3(0, Time.deltaTime, 0);
-        transform.eulerAngles = new Vector3(0, Mathf.Atan2(transform.position.x - Camera.main.transform.position.x, transform.position.z - Camera.main.transform.position.z) * Mathf.Rad2Deg, 0);
-        
+        transform.LookAt(Camera.main.transform);
+        transform.Rotate(0, 180, 0);
+
     }
 
     private IEnumerator Delete()
