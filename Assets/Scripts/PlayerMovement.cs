@@ -15,8 +15,13 @@ public class PlayerMovement : MonoBehaviour
     float yRotation = 0f;
     public Vector2 oldMouseVel = Vector2.zero;
     public GameObject img;
+    float imgx;
+    float imgy;
     void Start()
     {
+        imgx = img.GetComponent<RectTransform>().anchoredPosition.x;
+        imgy = img.GetComponent<RectTransform>().anchoredPosition.y;
+
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         characterController = GetComponent<CharacterController>();
@@ -28,11 +33,11 @@ public class PlayerMovement : MonoBehaviour
        
         if (characterController.velocity.x != 0f || characterController.velocity.z != 0f)
         {
-            img.GetComponent<RectTransform>().anchoredPosition = new Vector3(640 + -90f * Mathf.Cos(Time.time * 10f), -180 - 120f * Mathf.Abs(Mathf.Sin(Time.time * 10f)), 0);
+            img.GetComponent<RectTransform>().anchoredPosition = new Vector3(imgx + -90f * Mathf.Cos(Time.time * 10f), imgy- 120f * Mathf.Abs(Mathf.Sin(Time.time * 10f)), 0);
         }
         else
         {
-            img.GetComponent<RectTransform>().anchoredPosition = new Vector3(640, -180, 0);
+            img.GetComponent<RectTransform>().anchoredPosition = new Vector3(imgx, imgy, 0);
             
         }
             xRotation += -Mouse.current.delta.value.y;

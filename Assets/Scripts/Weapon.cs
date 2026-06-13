@@ -7,11 +7,11 @@ public class Weapon : MonoBehaviour
     public float currentCooldown = 1f;
 
     public Player player;
-    public void Update()
+    public void Tick()
     {
        
         currentCooldown -= Time.deltaTime;
-
+       
         if (currentCooldown <= 0f)
         {
             Fire();
@@ -20,8 +20,14 @@ public class Weapon : MonoBehaviour
     }
     public void Fire()
     {
-        Projectile clone = Instantiate(projectile);
-        clone.transform.position = Camera.main.transform.position;
-        clone.direction = player.aimPosition.normalized * Time.deltaTime *25f ;
+        
+
+
+        
+        Projectile clone = Instantiate(projectile,Camera.main.transform.position,Quaternion.identity);
+        
+
+        clone.direction = player.aimPosition.normalized  * 50f ;
+
     }
 }

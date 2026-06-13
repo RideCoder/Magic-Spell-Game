@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
         }
         foreach (var weapon in weapons)
         {
-            weapon.Update();
+            weapon.Tick();
         }
     }
 }

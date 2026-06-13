@@ -9,6 +9,11 @@ public class EnemyManager : MonoBehaviour
 
     public List<Enemy> enemies = new List<Enemy>();
 
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    private static void ResetStatics()
+    {
+        Instance = null;
+    }
     public void Start()
     {
         if (Instance != null && Instance != this)
