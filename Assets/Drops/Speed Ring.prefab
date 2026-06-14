@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 12841225830479327}
   - component: {fileID: 3913926064114427370}
   - component: {fileID: 6095490525448370902}
-  - component: {fileID: 5984423393519390560}
+  - component: {fileID: 8479400428689382203}
   m_Layer: 0
-  m_Name: Bottle
+  m_Name: Speed Ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,8 +30,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 784.21857, y: 426.2022, z: 0}
-  m_LocalScale: {x: 0.6666667, y: 1, z: 0.04159722}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8264711192094822387}
   m_Father: {fileID: 0}
@@ -96,7 +96,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5984423393519390560
+--- !u!114 &8479400428689382203
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,10 +105,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3814279292963482672}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a797c033acd97024d9fd40d635fe3526, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ef083775f6061c44b6be7522e51a2b2, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
-  weapon: {fileID: -1623071095997976172, guid: 70f1921f7e2c0944994d072b2591944c, type: 3}
+  m_EditorClassIdentifier: Assembly-CSharp::ItemPickup
+  item: {fileID: 954188656181600542, guid: a73021c97d08b8342bf4f93ed4e1e13c, type: 3}
 --- !u!1 &8394482685359208597
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,7 +176,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2429b816f4fb0134a98908277623135c, type: 2}
+  - {fileID: 2100000, guid: 76858fe1510765a408a79ad1d5ed2928, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

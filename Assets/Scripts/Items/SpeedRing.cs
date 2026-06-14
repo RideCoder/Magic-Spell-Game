@@ -2,8 +2,15 @@ using UnityEngine;
 
 public class SpeedRing : Item, IOnWeaponFire
 {
-    public void OnWeaponFire()
+    float cap = 15f;
+    float amount = 0f;
+    public void OnWeaponFire(Weapon weapon)
     {
-        Debug.Log("SPEED UP!");
+        if (amount < cap)
+        {
+            Debug.Log("What");
+            amount += 0.505f;
+            weapon.player.speed += 0.505f;
+        }
     }
 }

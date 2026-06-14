@@ -5,5 +5,5 @@ using UnityEngine;
 
 public interface IOnWeaponFire 
 {
-   public void OnWeaponFire();
+    public void OnWeaponFire(Weapon weapon);
 }

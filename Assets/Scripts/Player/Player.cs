@@ -12,8 +12,7 @@ public enum PlayerStat
     Health,
     MaxHealth,
     CritChance,
-    CritDamage,
-    COUNT
+    CritDamage
 }
 public class Player : MonoBehaviour
 {

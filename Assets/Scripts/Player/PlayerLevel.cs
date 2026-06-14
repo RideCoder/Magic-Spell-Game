@@ -23,6 +23,7 @@ public class PlayerLevel : MonoBehaviour
         if (xp >= requiredXp)
         {
             OnLevelChange?.Invoke();
+            level++;
             xp -= requiredXp;
         }
     }
