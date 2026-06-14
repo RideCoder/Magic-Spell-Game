@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     
     void Start()
     {
-        Time.timeScale = 0f;
+        
         player = GetComponentInParent<Player>();
         foreach (var hand in player.hands)
         {

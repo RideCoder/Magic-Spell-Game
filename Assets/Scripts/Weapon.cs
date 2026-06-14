@@ -21,7 +21,7 @@ public class Weapon : MonoBehaviour
         if (currentCooldown <= 0f)
         {
             Fire();
-            currentCooldown = cooldown/player.firerate;
+            currentCooldown = cooldown/player.stats[PlayerStat.FireRate];
         }
     }
     public void Fire()
@@ -40,7 +40,7 @@ public class Weapon : MonoBehaviour
             clone.items.Add(effect);
         }
         clone.weapon = this;
-        clone.damage = projectile.damage * player.damage;
+        clone.damage = projectile.damage * player.stats[PlayerStat.Damage];
         clone.direction = player.aimPosition.normalized  * 50f ;
 
     }

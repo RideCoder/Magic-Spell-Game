@@ -14,7 +14,7 @@ public class UpgradeSystem : MonoBehaviour
         foreach (Button button in buttons)
         {
             button.onClick.AddListener(
-                () => ApplyUpgrade(PlayerStats.FireRate, 1)
+                () => ApplyUpgrade(button.GetComponent<Upgrade>().stat, button.GetComponent<Upgrade>().change)
                 );
               
         }
@@ -25,9 +25,10 @@ public class UpgradeSystem : MonoBehaviour
 
     }
 
-    public void ApplyUpgrade(PlayerStats stats, float change)
+    public void ApplyUpgrade(PlayerStat stat, float change)
     {
-
+        Debug.Log(change);
+        player.stats[stat] *= change;
     }
    
 }

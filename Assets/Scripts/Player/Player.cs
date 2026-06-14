@@ -5,14 +5,15 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 
-public enum PlayerStats
+public enum PlayerStat
 {
     FireRate,
     Damage,
     Health,
     MaxHealth,
     CritChance,
-    CritDamage
+    CritDamage,
+    COUNT
 }
 public class Player : MonoBehaviour
 {
@@ -20,12 +21,15 @@ public class Player : MonoBehaviour
     public List<Weapon> weapons;
     public Vector3 aimPosition;
     public float speed;
-    public  float firerate = 1f;
-    public  float damage = 1f;
-    public float health = 100f;
-    public float maxHealth = 100f;
-    public  float critChance = 0.04f;
-    public  float critDamage = 2f;
+    public float health;
+    public Dictionary<PlayerStat, float> stats = new()
+    {
+        { PlayerStat.FireRate, 1f },
+        { PlayerStat.Damage, 1f },
+        { PlayerStat.MaxHealth, 100f },
+        { PlayerStat.CritChance, 0.04f },
+        { PlayerStat.CritDamage, 2f }
+    };
     public List<Item> items = new List<Item>();
     public List<Hand> hands = new List<Hand>();
 
@@ -50,6 +54,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(stats[PlayerStat.FireRate]);
         float closest = Mathf.Infinity;
 
 
