@@ -44,5 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb2ded0de9581d5498dc045d86c3a43a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FollowBehavior
-  yVel: 0
-  gravity: 9.81
+  followSpeed: 2

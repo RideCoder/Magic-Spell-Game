@@ -1,11 +1,12 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Weapon : MonoBehaviour
 {
     public Projectile projectile;
     public float cooldown = .01f;
     public float currentCooldown = .01f;
-
+    public Texture weaponImage;
     public Player player;
     public void Tick()
     {

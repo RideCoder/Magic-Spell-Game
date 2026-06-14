@@ -8,6 +8,7 @@ public class DamageNumberManager : MonoBehaviour
     void Start()
     {
         Enemy.OnDamaged += SpawnDamageText;
+    
     }
 
     public void SpawnDamageText(Enemy e, float dmg)

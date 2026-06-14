@@ -43,13 +43,13 @@ public class EnemyManager : MonoBehaviour
         time -= Time.deltaTime;
         if (time <= 0f)
         {
-            Vector2 randomDir = Random.insideUnitCircle.normalized;
+            /*Vector2 randomDir = Random.insideUnitCircle.normalized;
             float distance = Random.Range(10f, 15f);
             Vector3 spawnPos = Camera.main.transform.position +
                    new Vector3(randomDir.x, 0, randomDir.y) * distance;
 
             SpawnEnemy(enemy, spawnPos);
-            time = timeCooldown*Random.Range(.8f,1.2f);
+            time = timeCooldown*Random.Range(.8f,1.2f);*/
         }
     }
     public void RemoveEnemy(Enemy enemy)

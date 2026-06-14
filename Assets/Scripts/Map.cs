@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class Map : MonoBehaviour
@@ -9,7 +10,9 @@ public class Map : MonoBehaviour
     Dictionary<Enemy,RawImage> enemyIcons = new Dictionary<Enemy, RawImage>();
     public RawImage enemyIcon;
     List<Enemy> toRemove = new List<Enemy>();
-    
+    public float zoom = 10f;
+    public float minZoom = 3f;
+    public float maxZoom = 10f;
     void Start()
     {
         
@@ -18,7 +21,9 @@ public class Map : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+       // zoom += Mouse.current.scroll.value.magnitude;
+            
+       // zoom = Mathf.Clamp(zoom, minZoom, maxZoom);
         foreach (var key in enemyIcons)
         {
             if (key.Key == null)
@@ -41,7 +46,7 @@ public class Map : MonoBehaviour
                 
                 RawImage clone = Instantiate(enemyIcon);
                 clone.rectTransform.SetParent(transform, false);
-                clone.rectTransform.anchoredPosition = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.z,0) * 10f - new Vector3(enemy.transform.position.x, enemy.transform.position.z, 0)*10f;
+                clone.rectTransform.anchoredPosition = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.z,0) * zoom - new Vector3(enemy.transform.position.x, enemy.transform.position.z, 0)* zoom;
                 
                 enemyIcons.Add(enemy,clone);
             }
@@ -50,7 +55,9 @@ public class Map : MonoBehaviour
             
                 if (enemyIcons.TryGetValue(enemy, out RawImage clone))
                 {
-                    clone.rectTransform.anchoredPosition = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.z, 0) * 10f - new Vector3(enemy.transform.position.x, enemy.transform.position.z, 0) * 10f;
+                    clone.rectTransform.anchoredPosition = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.z, 0) * zoom - new Vector3(enemy.transform.position.x, enemy.transform.position.z, 0) * zoom;
+                    
+                
                 }
                     
                     
