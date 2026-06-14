@@ -4,6 +4,16 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
+
+public enum PlayerStats
+{
+    FireRate,
+    Damage,
+    Health,
+    MaxHealth,
+    CritChance,
+    CritDamage
+}
 public class Player : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created

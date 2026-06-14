@@ -78,11 +78,14 @@ public class WaveSystem : MonoBehaviour
         if (timer <= 0f)
         {
 
+            if (currentWave < maxWaves)
+            {
+                currentWave++;
+
+           
+                timer = waves[currentWave - 1].duration;
+            }
             
-            currentWave++;
-
-
-            timer = waves[currentWave-1].duration;
            
         }
         /*waves[currentWave - 1].duration -= Time.deltaTime;

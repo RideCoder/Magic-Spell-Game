@@ -7,6 +7,7 @@ public class PlayerLevel : MonoBehaviour
     public int requiredXp;
     public int level = 1;
     public static event Action<int, int, int> OnXpChange;
+    public static event Action OnLevelChange;
     public void Start()
     {
         requiredXp = level * 10;
@@ -21,6 +22,7 @@ public class PlayerLevel : MonoBehaviour
         OnXpChange?.Invoke(temp, xp, requiredXp);
         if (xp >= requiredXp)
         {
+            OnLevelChange?.Invoke();
             xp -= requiredXp;
         }
     }

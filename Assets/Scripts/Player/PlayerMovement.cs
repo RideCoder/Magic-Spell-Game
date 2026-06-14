@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     
     void Start()
     {
+        Time.timeScale = 0f;
         player = GetComponentInParent<Player>();
         foreach (var hand in player.hands)
         {
@@ -31,8 +32,8 @@ public class PlayerMovement : MonoBehaviour
         /*imgx = img.GetComponent<RectTransform>().anchoredPosition.x;
         imgy = img.GetComponent<RectTransform>().anchoredPosition.y;*/
 
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
+       // Cursor.lockState = CursorLockMode.Locked;
         characterController = GetComponent<CharacterController>();
     }
 
