@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6095490525448370902}
   - component: {fileID: 5984423393519390560}
   m_Layer: 7
-  m_Name: Doritos
+  m_Name: Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a797c033acd97024d9fd40d635fe3526, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  weapon: {fileID: -1623071095997976172, guid: 3e657c2fe7a1e834c8af7a2eeabdc11c, type: 3}
+  weapon: {fileID: -1623071095997976172, guid: 70f1921f7e2c0944994d072b2591944c, type: 3}
 --- !u!1 &8394482685359208597
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,7 +176,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31420a508b1191f4d8792ccee11ec7ce, type: 2}
+  - {fileID: 2100000, guid: c6dd87d5a692f1149ab161b76b6b311f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

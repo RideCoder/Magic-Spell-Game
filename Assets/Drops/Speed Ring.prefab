@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3913926064114427370}
   - component: {fileID: 6095490525448370902}
   - component: {fileID: 8479400428689382203}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Speed Ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 8466541299191314526}
   - component: {fileID: 6165713677591322874}
   - component: {fileID: 3420864828480351702}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}

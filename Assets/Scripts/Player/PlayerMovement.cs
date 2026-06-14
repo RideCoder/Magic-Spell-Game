@@ -97,6 +97,6 @@ public class PlayerMovement : MonoBehaviour
         if (move.sqrMagnitude > 1)
             move.Normalize(); // prevents diagonal speed boost
 
-        characterController.Move(move * Time.deltaTime * speed);
+        characterController.Move(move * Time.deltaTime * player.stats[PlayerStat.Speed]);
     }
 }

@@ -7,9 +7,14 @@ public class WeaponPickup : MonoBehaviour
     {
         if (other.gameObject.GetComponent<Player>() != null)
         {
-            Weapon clone = Instantiate(weapon);
-            other.gameObject.GetComponent<Player>().AddWeapon(clone);
-            Destroy(gameObject);
+            if (other.gameObject.GetComponent<Player>().CanAddWeapon())
+            {
+                
+                Weapon clone = Instantiate(weapon);
+                other.gameObject.GetComponent<Player>().AddWeapon(clone);
+                Destroy(gameObject);
+            }
+            
         }
     }
 }

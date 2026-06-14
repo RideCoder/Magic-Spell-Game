@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
@@ -9,17 +10,19 @@ public enum PlayerStat
 {
     FireRate,
     Damage,
-    Health,
     MaxHealth,
     CritChance,
-    CritDamage
+    CritDamage,
+    Speed
 }
 public class Player : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public List<Weapon> weapons;
     public Vector3 aimPosition;
-    public float speed;
+    public static event Action<float,float> OnHealthUpdated;
+    public static event Action<int, int> OnHandAdded;
+
     public float health;
     public Dictionary<PlayerStat, float> stats = new()
     {
@@ -27,28 +30,40 @@ public class Player : MonoBehaviour
         { PlayerStat.Damage, 1f },
         { PlayerStat.MaxHealth, 100f },
         { PlayerStat.CritChance, 0.04f },
-        { PlayerStat.CritDamage, 2f }
+        { PlayerStat.CritDamage, 2f },
+        { PlayerStat.Speed, 5f }
     };
     public List<Item> items = new List<Item>();
     public List<Hand> hands = new List<Hand>();
 
+    public void ChangeHealth(float amount)
+    {
+        health += amount;
+        OnHealthUpdated?.Invoke(health, stats[PlayerStat.MaxHealth]);
+    }
 
-
-
-    public void AddWeapon(Weapon weapon)
+    public void AddHand(Hand hand)
+    {
+        
+        hands.Add(hand);
+        OnHandAdded?.Invoke(hands.Count,1);
+    }
+    public bool CanAddWeapon()
     {
         if (hands.Count > weapons.Count)
         {
+            return true;
+        }
+        return false;
+    }
+    public void AddWeapon(Weapon weapon)
+    {
             hands[weapons.Count].image.texture = weapon.weaponImage;
             weapon.player = this;
             weapons.Add(weapon);
-            
-        }
+
     }
-    void Start()
-    {
-       
-    }
+
 
     // Update is called once per frame
     void Update()

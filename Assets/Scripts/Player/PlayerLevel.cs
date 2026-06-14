@@ -19,12 +19,15 @@ public class PlayerLevel : MonoBehaviour
        
         int temp = xp;
         xp += 2;
-        OnXpChange?.Invoke(temp, xp, requiredXp);
+        
+        
         if (xp >= requiredXp)
         {
             OnLevelChange?.Invoke();
             level++;
             xp -= requiredXp;
+            requiredXp = level * 10;
         }
+        OnXpChange?.Invoke(temp, xp, requiredXp);
     }
 }

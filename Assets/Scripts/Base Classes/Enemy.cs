@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour, IDamageable
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public float health = 100f;
+    public float damage = 5f;
     public List<EnemyBehavior> behavior = new List<EnemyBehavior>();
 
     public static event Action<Enemy, float> OnDamaged;
@@ -35,6 +36,15 @@ public class Enemy : MonoBehaviour, IDamageable
            
             OnDeath?.Invoke(this);
             EnemyManager.Instance.RemoveEnemy(this);
+        }
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit collision)
+    {
+        
+        if (collision.gameObject.GetComponent<Player>() != null)
+        {
+            collision.gameObject.GetComponent<Player>().ChangeHealth(-Time.deltaTime*damage);
         }
     }
 }

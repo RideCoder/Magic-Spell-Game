@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class XpDisplay : MonoBehaviour
+public class HealthDisplay : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private RawImage image;
@@ -9,14 +9,14 @@ public class XpDisplay : MonoBehaviour
     void Start()
     {
         
-        PlayerLevel.OnXpChange += UpdateXpDisplay;
+        Player.OnHealthUpdated += UpdateHealthDisplay;
         image = GetComponentInParent<RawImage>();
         imageWidth = image.rectTransform.sizeDelta.x;
     }
 
-    public void UpdateXpDisplay(int oldXp, int newXp, int requiredXp)
+    public void UpdateHealthDisplay(float health, float maxHealth)
     {
         
-        image.rectTransform.sizeDelta = new Vector2(((float)newXp/(float)requiredXp)*imageWidth,image.rectTransform.sizeDelta.y);
+        image.rectTransform.sizeDelta = new Vector2(((float)health/(float)maxHealth)*imageWidth,image.rectTransform.sizeDelta.y);
     }
 }

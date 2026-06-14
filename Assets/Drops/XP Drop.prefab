@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9114694219459096249}
   - component: {fileID: 5971187051650780683}
   - component: {fileID: 1723161091070214677}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: XP Drop Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9047980992588675103}
   - component: {fileID: 7431600562918354478}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: XP Drop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
