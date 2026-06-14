@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     {
         if (hands.Count > weapons.Count)
         {
-            hands[weapons.Count - 1].image.texture = weapon.weaponImage;
+            hands[weapons.Count].image.texture = weapon.weaponImage;
             weapon.player = this;
             weapons.Add(weapon);
             
