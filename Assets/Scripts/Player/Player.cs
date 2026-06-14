@@ -17,17 +17,24 @@ public class Player : MonoBehaviour
     public  float critChance = 0.04f;
     public  float critDamage = 2f;
     public List<Item> items = new List<Item>();
-
-    
-    
+    public List<Hand> hands = new List<Hand>();
 
 
+
+
+    public void AddWeapon(Weapon weapon)
+    {
+        if (hands.Count > weapons.Count)
+        {
+            hands[weapons.Count - 1].image.texture = weapon.weaponImage;
+            weapon.player = this;
+            weapons.Add(weapon);
+            
+        }
+    }
     void Start()
     {
-        foreach (var weapon in weapons)
-        {
-            weapon.player = this;
-        }
+       
     }
 
     // Update is called once per frame

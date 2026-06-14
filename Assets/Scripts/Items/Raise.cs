@@ -4,6 +4,7 @@ public class Raise : Item, IOnProjectileUpdate
 {
     public void OnProjectileUpdate(Projectile projectile)
     {
-        projectile.transform.position += new Vector3(0, Time.deltaTime, 0);
+
+        projectile.direction += Vector3.up * 0.1f;
     }
 }

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IOnProjectileFire 
+public interface IOnWeaponFire 
 {
-   public void OnProjectileFire();
+   public void OnWeaponFire();
 }

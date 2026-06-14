@@ -18,14 +18,15 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foreach (IOnProjectileUpdate effect in items)
-        {
-            effect.OnProjectileUpdate(this);
-        }
+        
         transform.eulerAngles = new Vector3(0, Mathf.Atan2(transform.position.x - Camera.main.transform.position.x, transform.position.z - Camera.main.transform.position.z) * Mathf.Rad2Deg, 0);
     }
     private void FixedUpdate()
     {
+        foreach (IOnProjectileUpdate effect in items)
+        {
+            effect.OnProjectileUpdate(this);
+        }
         rb.MovePosition(transform.position + direction * .01f);
     }
    

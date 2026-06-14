@@ -30,9 +30,9 @@ public class Weapon : MonoBehaviour
 
         
         Projectile clone = Instantiate(projectile,Camera.main.transform.position,Quaternion.identity);
-        foreach (IOnProjectileFire item in player.items.OfType<IOnProjectileFire>())
+        foreach (IOnWeaponFire item in player.items.OfType<IOnWeaponFire>())
         {
-            item.OnProjectileFire();
+            item.OnWeaponFire();
         }
 
         foreach (IProjectileEffect effect in player.items.OfType<IProjectileEffect>())

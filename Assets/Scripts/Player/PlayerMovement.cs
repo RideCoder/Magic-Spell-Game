@@ -1,7 +1,10 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.XR;
 public class PlayerMovement : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -15,13 +18,18 @@ public class PlayerMovement : MonoBehaviour
     float yRotation = 0f;
     public float speed = 5f;
     public Vector2 oldMouseVel = Vector2.zero;
-    public GameObject img;
-    float imgx;
-    float imgy;
+    public Dictionary<Hand, Vector2> handPositions = new Dictionary<Hand, Vector2>();
+    public Player player;
+    
     void Start()
     {
-        imgx = img.GetComponent<RectTransform>().anchoredPosition.x;
-        imgy = img.GetComponent<RectTransform>().anchoredPosition.y;
+        player = GetComponentInParent<Player>();
+        foreach (var hand in player.hands)
+        {
+            handPositions.Add(hand, hand.image.rectTransform.anchoredPosition);
+        }
+        /*imgx = img.GetComponent<RectTransform>().anchoredPosition.x;
+        imgy = img.GetComponent<RectTransform>().anchoredPosition.y;*/
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -34,17 +42,23 @@ public class PlayerMovement : MonoBehaviour
        
         if (characterController.velocity.x != 0f || characterController.velocity.z != 0f)
         {
-            img.GetComponent<RectTransform>().anchoredPosition = new Vector3(imgx + -90f * Mathf.Cos(Time.time * 10f), imgy- 120f * Mathf.Abs(Mathf.Sin(Time.time * 10f)), 0);
+            foreach (var hand in handPositions)
+            {
+                hand.Key.image.rectTransform.anchoredPosition = new Vector2(hand.Value.x + -90f * Mathf.Cos(Time.time * 10f), hand.Value.y - 120f * Mathf.Abs(Mathf.Sin(Time.time * 10f)));
+            }
+           
         }
         else
         {
-            img.GetComponent<RectTransform>().anchoredPosition = new Vector3(imgx, imgy, 0);
-            
+            foreach (var hand in handPositions)
+            {
+                hand.Key.image.rectTransform.anchoredPosition = new Vector2(hand.Value.x, hand.Value.y);
+            }
         }
-            xRotation += -Mouse.current.delta.value.y;
-            yRotation += Mouse.current.delta.value.x;
-         xRotation = Mathf.Clamp(xRotation, -179f, 179f);
-         Camera.main.transform.eulerAngles = new Vector3(xRotation, yRotation, 0)*.5f;
+        xRotation += -Mouse.current.delta.value.y;
+        yRotation += Mouse.current.delta.value.x;
+        xRotation = Mathf.Clamp(xRotation, -179f, 179f);
+        Camera.main.transform.eulerAngles = new Vector3(xRotation, yRotation, 0)*.5f;
           
 
         if (!characterController.isGrounded)

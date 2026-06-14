@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class SpeedRing : Item, IOnProjectileFire
+public class SpeedRing : Item, IOnWeaponFire
 {
-    public void OnProjectileFire()
+    public void OnWeaponFire()
     {
         Debug.Log("SPEED UP!");
     }
