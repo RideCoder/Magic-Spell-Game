@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public enum PlayerStat
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour
     public Vector3 aimPosition;
     public static event Action<float,float> OnHealthUpdated;
     public static event Action<List<Hand>> OnHandAdded;
+    public static event Action<List<Weapon>, Weapon, int> OnWeaponAdded;
 
     public float health;
     public Dictionary<PlayerStat, float> stats = new()
@@ -58,10 +60,11 @@ public class Player : MonoBehaviour
     }
     public void AddWeapon(Weapon weapon)
     {
-            hands[weapons.Count].image.texture = weapon.weaponImage;
+        //hands[weapons.Count].image.texture = weapon.weaponImage;
+       
             weapon.player = this;
             weapons.Add(weapon);
-
+        OnWeaponAdded?.Invoke(weapons, weapon, weapons.Count);
     }
 
 

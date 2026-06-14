@@ -18,13 +18,12 @@ public class PlayerMovement : MonoBehaviour
     float yRotation = 0f;
     public float speed = 5f;
     public Vector2 oldMouseVel = Vector2.zero;
-    public Dictionary<GameObject, Vector2> handPositions = new Dictionary<GameObject, Vector2>();
-    public HandsUI handsUI;
+
     public Player player;
     
     void Start()
     {
-        Player.OnHandAdded += UpdateHands;
+    
         player = GetComponent<Player>();
         
         /*imgx = img.GetComponent<RectTransform>().anchoredPosition.x;
@@ -35,34 +34,12 @@ public class PlayerMovement : MonoBehaviour
         characterController = GetComponent<CharacterController>();
     }
 
-    public void UpdateHands(List<Hand> ignore)
-    {
-        handPositions.Clear();
-        foreach (var hand in handsUI.images)
-        {
-            handPositions.Add(hand, hand.GetComponent<RectTransform>().anchoredPosition);
-        }
-    }
-
+  
     // Update is called once per frame
     void Update()
     {
        
-        if (characterController.velocity.x != 0f || characterController.velocity.z != 0f)
-        {
-            foreach (var hand in handPositions)
-            {
-                hand.Key.GetComponent<RectTransform>().anchoredPosition = new Vector2(hand.Value.x + -90f * Mathf.Cos(Time.time * 10f), hand.Value.y - 120f * Mathf.Abs(Mathf.Sin(Time.time * 10f)));
-            }
-           
-        }
-        else
-        {
-            foreach (var hand in handPositions)
-            {
-                hand.Key.GetComponent<RectTransform>().anchoredPosition = new Vector2(hand.Value.x, hand.Value.y);
-            }
-        }
+      
         xRotation += -Mouse.current.delta.value.y;
         yRotation += Mouse.current.delta.value.x;
         xRotation = Mathf.Clamp(xRotation, -179f, 179f);
