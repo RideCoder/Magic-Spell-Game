@@ -16,7 +16,7 @@ public class Weapon : MonoBehaviour
         if (currentCooldown <= 0f)
         {
             Fire();
-            currentCooldown = cooldown;
+            currentCooldown = cooldown/player.firerate;
         }
     }
     public void Fire()
@@ -25,8 +25,8 @@ public class Weapon : MonoBehaviour
 
         
         Projectile clone = Instantiate(projectile,Camera.main.transform.position,Quaternion.identity);
-        
 
+        clone.damage = projectile.damage * player.damage;
         clone.direction = player.aimPosition.normalized  * 50f ;
 
     }

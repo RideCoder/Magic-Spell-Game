@@ -9,6 +9,16 @@ public class Player : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public List<Weapon> weapons;
     public Vector3 aimPosition;
+    public float speed;
+    public  float firerate = 1f;
+    public  float damage = 1f;
+    public float health = 100f;
+    public float maxHealth = 100f;
+    public  float critChance = 0.04f;
+    public  float critDamage = 2f;
+
+    
+
 
     void Start()
     {

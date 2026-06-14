@@ -1,3 +1,5 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -5,6 +7,8 @@ public class Projectile : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public Vector3 direction;
     public Rigidbody rb;
+    public float damage;
+    public List<Item> items = new List<Item>();
     void Start()
     {
      rb = GetComponent<Rigidbody>();       
@@ -29,7 +33,7 @@ public class Projectile : MonoBehaviour
             if (collision.gameObject.GetComponent<IDamageable>() != null)
             {
             
-                collision.gameObject.GetComponent<IDamageable>().TakeDamage(5);
+                collision.gameObject.GetComponent<IDamageable>().TakeDamage(damage);
             }
 
      

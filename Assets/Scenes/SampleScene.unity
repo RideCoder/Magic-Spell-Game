@@ -3216,8 +3216,9 @@ GameObject:
   - component: {fileID: 859197729}
   - component: {fileID: 859197734}
   - component: {fileID: 859197735}
+  - component: {fileID: 859197736}
   m_Layer: 3
-  m_Name: Capsule
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3354,6 +3355,28 @@ MonoBehaviour:
   weapons:
   - {fileID: 830386009}
   aimPosition: {x: 0, y: 0, z: 0}
+  speed: 0
+  firerate: 1
+  damage: 1
+  health: 100
+  maxHealth: 100
+  critChance: 0.04
+  critDamage: 2
+--- !u!114 &859197736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859197728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e54d2c990187864c9766b7021fd00b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerLevel
+  xp: 0
+  requiredXp: 0
+  level: 1
 --- !u!1 &899021427
 GameObject:
   m_ObjectHideFlags: 0
