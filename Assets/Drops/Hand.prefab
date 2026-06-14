@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 12841225830479327}
   - component: {fileID: 3913926064114427370}
   - component: {fileID: 6095490525448370902}
-  - component: {fileID: 5984423393519390560}
+  - component: {fileID: 678242923745175260}
   m_Layer: 7
   m_Name: Hand
   m_TagString: Untagged
@@ -96,7 +96,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5984423393519390560
+--- !u!114 &678242923745175260
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,10 +105,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3814279292963482672}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a797c033acd97024d9fd40d635fe3526, type: 3}
+  m_Script: {fileID: 11500000, guid: 658fbc4cc616bde4db18c687439007e1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
-  weapon: {fileID: -1623071095997976172, guid: 70f1921f7e2c0944994d072b2591944c, type: 3}
+  m_EditorClassIdentifier: Assembly-CSharp::HandPickup
+  hand: {fileID: 4767918087093101949, guid: 610f948d77000ac45bd619fb5a3d29af, type: 3}
 --- !u!1 &8394482685359208597
 GameObject:
   m_ObjectHideFlags: 0

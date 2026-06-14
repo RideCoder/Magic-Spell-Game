@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     public List<Weapon> weapons;
     public Vector3 aimPosition;
     public static event Action<float,float> OnHealthUpdated;
-    public static event Action<int, int> OnHandAdded;
+    public static event Action<List<Hand>> OnHandAdded;
 
     public float health;
     public Dictionary<PlayerStat, float> stats = new()
@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
     {
         
         hands.Add(hand);
-        OnHandAdded?.Invoke(hands.Count,1);
+        OnHandAdded?.Invoke(hands);
     }
     public bool CanAddWeapon()
     {

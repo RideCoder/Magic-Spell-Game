@@ -18,23 +18,30 @@ public class PlayerMovement : MonoBehaviour
     float yRotation = 0f;
     public float speed = 5f;
     public Vector2 oldMouseVel = Vector2.zero;
-    public Dictionary<Hand, Vector2> handPositions = new Dictionary<Hand, Vector2>();
+    public Dictionary<GameObject, Vector2> handPositions = new Dictionary<GameObject, Vector2>();
+    public HandsUI handsUI;
     public Player player;
     
     void Start()
     {
+        Player.OnHandAdded += UpdateHands;
+        player = GetComponent<Player>();
         
-        player = GetComponentInParent<Player>();
-        foreach (var hand in player.hands)
-        {
-            handPositions.Add(hand, hand.image.rectTransform.anchoredPosition);
-        }
         /*imgx = img.GetComponent<RectTransform>().anchoredPosition.x;
         imgy = img.GetComponent<RectTransform>().anchoredPosition.y;*/
 
         //Cursor.visible = false;
        // Cursor.lockState = CursorLockMode.Locked;
         characterController = GetComponent<CharacterController>();
+    }
+
+    public void UpdateHands(List<Hand> ignore)
+    {
+        handPositions.Clear();
+        foreach (var hand in handsUI.images)
+        {
+            handPositions.Add(hand, hand.GetComponent<RectTransform>().anchoredPosition);
+        }
     }
 
     // Update is called once per frame
@@ -45,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
         {
             foreach (var hand in handPositions)
             {
-                hand.Key.image.rectTransform.anchoredPosition = new Vector2(hand.Value.x + -90f * Mathf.Cos(Time.time * 10f), hand.Value.y - 120f * Mathf.Abs(Mathf.Sin(Time.time * 10f)));
+                hand.Key.GetComponent<RectTransform>().anchoredPosition = new Vector2(hand.Value.x + -90f * Mathf.Cos(Time.time * 10f), hand.Value.y - 120f * Mathf.Abs(Mathf.Sin(Time.time * 10f)));
             }
            
         }
@@ -53,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
         {
             foreach (var hand in handPositions)
             {
-                hand.Key.image.rectTransform.anchoredPosition = new Vector2(hand.Value.x, hand.Value.y);
+                hand.Key.GetComponent<RectTransform>().anchoredPosition = new Vector2(hand.Value.x, hand.Value.y);
             }
         }
         xRotation += -Mouse.current.delta.value.y;
