@@ -1,3 +1,6 @@
+using NUnit.Framework;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +11,8 @@ public class Weapon : MonoBehaviour
     public float currentCooldown = .01f;
     public Texture weaponImage;
     public Player player;
+    
+    
     public void Tick()
     {
        
@@ -25,7 +30,16 @@ public class Weapon : MonoBehaviour
 
         
         Projectile clone = Instantiate(projectile,Camera.main.transform.position,Quaternion.identity);
+        foreach (IOnProjectileFire item in player.items.OfType<IOnProjectileFire>())
+        {
+            item.OnProjectileFire();
+        }
 
+        foreach (IProjectileEffect effect in player.items.OfType<IProjectileEffect>())
+        {
+            clone.items.Add(effect);
+        }
+        clone.weapon = this;
         clone.damage = projectile.damage * player.damage;
         clone.direction = player.aimPosition.normalized  * 50f ;
 

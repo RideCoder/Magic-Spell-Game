@@ -8,7 +8,8 @@ public class Projectile : MonoBehaviour
     public Vector3 direction;
     public Rigidbody rb;
     public float damage;
-    public List<Item> items = new List<Item>();
+    public Weapon weapon;
+    public List<IProjectileEffect> items = new List<IProjectileEffect>();
     void Start()
     {
      rb = GetComponent<Rigidbody>();       
@@ -17,7 +18,10 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
+        foreach (IOnProjectileUpdate effect in items)
+        {
+            effect.OnProjectileUpdate(this);
+        }
         transform.eulerAngles = new Vector3(0, Mathf.Atan2(transform.position.x - Camera.main.transform.position.x, transform.position.z - Camera.main.transform.position.z) * Mathf.Rad2Deg, 0);
     }
     private void FixedUpdate()
@@ -32,7 +36,10 @@ public class Projectile : MonoBehaviour
         {
             if (collision.gameObject.GetComponent<IDamageable>() != null)
             {
-            
+                foreach (IProjectileEffect item in items)
+                {
+
+                }
                 collision.gameObject.GetComponent<IDamageable>().TakeDamage(damage);
             }
 

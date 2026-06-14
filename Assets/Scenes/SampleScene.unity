@@ -3362,6 +3362,8 @@ MonoBehaviour:
   maxHealth: 100
   critChance: 0.04
   critDamage: 2
+  items:
+  - {fileID: -5551813374919887255, guid: cef51dcb5c59e5c41a11dc5931b97394, type: 3}
 --- !u!114 &859197736
 MonoBehaviour:
   m_ObjectHideFlags: 0

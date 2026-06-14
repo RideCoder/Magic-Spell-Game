@@ -16,7 +16,9 @@ public class Player : MonoBehaviour
     public float maxHealth = 100f;
     public  float critChance = 0.04f;
     public  float critDamage = 2f;
+    public List<Item> items = new List<Item>();
 
+    
     
 
 
