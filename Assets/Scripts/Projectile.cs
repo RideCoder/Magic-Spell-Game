@@ -20,7 +20,7 @@ public class Projectile : MonoBehaviour
     {
         rb.MovePosition(transform.position + direction * .01f);
     }
-
+   
     private void OnTriggerEnter(Collider collision)
     {
         
@@ -28,13 +28,13 @@ public class Projectile : MonoBehaviour
         {
             if (collision.gameObject.GetComponent<IDamageable>() != null)
             {
-                Debug.Log("WHY TWICE");
+            
                 collision.gameObject.GetComponent<IDamageable>().TakeDamage(5);
             }
 
      
           
-            //Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 }

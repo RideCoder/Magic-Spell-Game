@@ -29,16 +29,22 @@ public class Player : MonoBehaviour
         {
             if (IsVisible(enemy))
             {
-              
-
-                Vector3 offset = enemy.transform.position - Camera.main.transform.position;
-
-                if (offset.sqrMagnitude < closest)
+                if (Physics.Raycast(Camera.main.transform.position, enemy.transform.position - Camera.main.transform.position, out RaycastHit hit))
                 {
-                    aimPosition = offset;
-                    closest = offset.sqrMagnitude;
+                   
+                    if (hit.collider.GetComponent<Enemy>() != null)
+                    {
+                        Vector3 offset = enemy.transform.position - Camera.main.transform.position;
+
+                        if (offset.sqrMagnitude < closest)
+                        {
+                            aimPosition = offset;
+                            closest = offset.sqrMagnitude;
+                        }
+
+                        lookingAtEnemy = true;
+                    }
                 }
-                lookingAtEnemy = true;
             }
 
             

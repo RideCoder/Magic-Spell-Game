@@ -7,6 +7,7 @@ public class EnemyVisual : MonoBehaviour
     public bool flashing = false;
     public Color flashColor = Color.white;
     private Enemy enemy;
+    private float currentTime = 0f;
        public void Awake()
     {
         enemy = GetComponentInParent<Enemy>();
@@ -17,6 +18,7 @@ public class EnemyVisual : MonoBehaviour
     }
     public void Update()
     {
+        currentTime += Time.deltaTime;
         GetComponent<MeshRenderer>().material.SetFloat("_Flash_Amount", 0);
         if (flashing)
         {
@@ -31,7 +33,7 @@ public class EnemyVisual : MonoBehaviour
 
         }
 
-        transform.localPosition = new Vector3(0, Mathf.Sin(Time.time*5f)/6f, 0);
+        transform.localPosition = new Vector3(0, Mathf.Sin(currentTime*5f)/6f, 0);
     }
 
     public void Damaged(float damage)

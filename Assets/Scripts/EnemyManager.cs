@@ -49,7 +49,7 @@ public class EnemyManager : MonoBehaviour
                    new Vector3(randomDir.x, 0, randomDir.y) * distance;
 
             SpawnEnemy(enemy, spawnPos);
-            time = timeCooldown;
+            time = timeCooldown*Random.Range(.8f,1.2f);
         }
     }
     public void RemoveEnemy(Enemy enemy)

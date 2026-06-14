@@ -75,7 +75,10 @@ public class PlayerMovement : MonoBehaviour
         if (Keyboard.current.sKey.isPressed) move -= forward;
         if (Keyboard.current.aKey.isPressed) move -= right;
         if (Keyboard.current.dKey.isPressed) move += right;
-
+        if (Keyboard.current.spaceKey.isPressed && characterController.isGrounded)
+        {
+            yVel = 5f;
+        }
         if (move.sqrMagnitude > 1)
             move.Normalize(); // prevents diagonal speed boost
 
