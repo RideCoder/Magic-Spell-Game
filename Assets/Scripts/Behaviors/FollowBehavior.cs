@@ -7,13 +7,13 @@ public class FollowBehavior : EnemyBehavior
 
     public override void Behavior(Enemy e)
     {
-        if (e.controller == null)
+        if (e.rb == null)
         {
             return;
         }
 
        
-        e.controller.Move(-e.transform.forward * Time.deltaTime * followSpeed);
+        e.rb.Move(e.transform.position +  (-e.transform.forward * Time.deltaTime * followSpeed), Quaternion.identity);
         e.transform.eulerAngles = new Vector3(0, Mathf.Atan2(e.transform.position.x - Player.cam.transform.position.x, e.transform.position.z - Player.cam.transform.position.z) * Mathf.Rad2Deg, 0);
     }
 }

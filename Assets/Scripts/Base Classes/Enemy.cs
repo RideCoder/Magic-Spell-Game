@@ -13,12 +13,11 @@ public class Enemy : MonoBehaviour, IDamageable
     public static event Action<Enemy, float> OnDamaged;
     public event Action<float> OnThisEnemyDamaged;
     public static event Action<Enemy> OnDeath;
-    public CharacterController controller;
-
+    public Rigidbody rb;
 
     public void Awake()
     {
-        controller = GetComponent<CharacterController>();  
+        rb = GetComponent<Rigidbody>();  
     }
     // Update is called once per frame
     public void Tick()

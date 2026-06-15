@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1394917255230325935}
   - component: {fileID: 2803748134255386522}
+  - component: {fileID: 8462910584033996665}
+  - component: {fileID: 4490279274610193835}
   m_Layer: 0
   m_Name: Pumpkin RB
   m_TagString: Untagged
@@ -49,8 +51,55 @@ MonoBehaviour:
   damage: 15
   behavior:
   - {fileID: 8166264567247172988, guid: 35fca1f6eaa931b4a90c091471f5d52e, type: 3}
-  - {fileID: -2461168739870719279, guid: 1f203d0e6d1276a4e95f6b3489cbc30b, type: 3}
-  controller: {fileID: 0}
+  rb: {fileID: 0}
+--- !u!54 &8462910584033996665
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3865786828538485648}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
+--- !u!135 &4490279274610193835
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3865786828538485648}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7509104843916841127
 GameObject:
   m_ObjectHideFlags: 0
