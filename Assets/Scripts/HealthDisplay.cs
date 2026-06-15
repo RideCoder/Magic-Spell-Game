@@ -10,11 +10,12 @@ public class HealthDisplay : MonoBehaviour
     {
         
         Player.OnHealthUpdated += UpdateHealthDisplay;
-        image = GetComponentInParent<RawImage>();
+        image = GetComponent<RawImage>();
+        
         imageWidth = image.rectTransform.sizeDelta.x;
     }
 
-    public void UpdateHealthDisplay(float health, float maxHealth)
+    public void UpdateHealthDisplay(float health, float maxHealth, float amount)
     {
         
         image.rectTransform.sizeDelta = new Vector2(((float)health/(float)maxHealth)*imageWidth,image.rectTransform.sizeDelta.y);

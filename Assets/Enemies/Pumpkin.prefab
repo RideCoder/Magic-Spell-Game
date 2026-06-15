@@ -72,6 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   health: 15
+  damage: 15
   behavior:
   - {fileID: 8166264567247172988, guid: 35fca1f6eaa931b4a90c091471f5d52e, type: 3}
   - {fileID: -2461168739870719279, guid: 1f203d0e6d1276a4e95f6b3489cbc30b, type: 3}

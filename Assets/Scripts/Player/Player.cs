@@ -21,10 +21,10 @@ public class Player : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public List<Weapon> weapons;
     public Vector3 aimPosition;
-    public static event Action<float,float> OnHealthUpdated;
+    public static event Action<float,float, float> OnHealthUpdated;
     public static event Action<List<Hand>> OnHandAdded;
     public static event Action<List<Weapon>, Weapon, int> OnWeaponAdded;
-
+    public Hand startHand;
     public float health;
     public Dictionary<PlayerStat, float> stats = new()
     {
@@ -37,11 +37,14 @@ public class Player : MonoBehaviour
     };
     public List<Item> items = new List<Item>();
     public List<Hand> hands = new List<Hand>();
-
+    public void Start()
+    {
+       // AddHand(startHand);
+    }
     public void ChangeHealth(float amount)
     {
         health += amount;
-        OnHealthUpdated?.Invoke(health, stats[PlayerStat.MaxHealth]);
+        OnHealthUpdated?.Invoke(health, stats[PlayerStat.MaxHealth], amount);
     }
 
     public void AddHand(Hand hand)
@@ -80,7 +83,8 @@ public class Player : MonoBehaviour
         {
             if (IsVisible(enemy))
             {
-                if (Physics.Raycast(Camera.main.transform.position, enemy.transform.position - Camera.main.transform.position, out RaycastHit hit))
+                
+                if (Physics.Raycast(Camera.main.transform.position, enemy.transform.position - Camera.main.transform.position, out RaycastHit hit, Mathf.Infinity, 1))
                 {
                    
                     if (hit.collider.GetComponent<Enemy>() != null)

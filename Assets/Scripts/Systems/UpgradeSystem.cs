@@ -24,18 +24,23 @@ public class UpgradeSystem : MonoBehaviour
 
     public void LeveledUp()
     {
+        
         foreach (Button button in buttons)
         {
             button.GetComponent<Upgrade>().RandomizeStats();
         }
-        OnStatusChange(true);
+        OnStatusChange?.Invoke(true);
+
     }
 
     public void ApplyUpgrade(PlayerStat stat, float change)
     {
-        OnStatusChange(false);
+        OnStatusChange?.Invoke(false);
         player.stats[stat] *= change;
-        
+        Time.timeScale = 1;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
     }
    
 }

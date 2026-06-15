@@ -29,8 +29,8 @@ public class PlayerMovement : MonoBehaviour
         /*imgx = img.GetComponent<RectTransform>().anchoredPosition.x;
         imgy = img.GetComponent<RectTransform>().anchoredPosition.y;*/
 
-        //Cursor.visible = false;
-       // Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         characterController = GetComponent<CharacterController>();
     }
 
@@ -39,12 +39,15 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
        
-      
-        xRotation += -Mouse.current.delta.value.y;
-        yRotation += Mouse.current.delta.value.x;
-        xRotation = Mathf.Clamp(xRotation, -179f, 179f);
-        Camera.main.transform.eulerAngles = new Vector3(xRotation, yRotation, 0)*.5f;
-          
+        if (Time.timeScale != 0)
+        {
+            xRotation += -Mouse.current.delta.value.y;
+            yRotation += Mouse.current.delta.value.x;
+            xRotation = Mathf.Clamp(xRotation, -179f, 179f);
+            Camera.main.transform.eulerAngles = new Vector3(xRotation, yRotation, 0) * .5f;
+
+        }
+
 
         if (!characterController.isGrounded)
         {

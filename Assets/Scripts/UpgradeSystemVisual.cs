@@ -13,5 +13,10 @@ public class UpgradeSystemVisual : MonoBehaviour
     public void StatusChange(bool status)
     {
         ui.SetActive(status);
+
+        //Maybe make it super slow mo?
+        Time.timeScale = 0;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 }

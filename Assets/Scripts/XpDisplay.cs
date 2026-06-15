@@ -10,8 +10,10 @@ public class XpDisplay : MonoBehaviour
     {
         
         PlayerLevel.OnXpChange += UpdateXpDisplay;
-        image = GetComponentInParent<RawImage>();
+        image = GetComponent<RawImage>();
         imageWidth = image.rectTransform.sizeDelta.x;
+        image.rectTransform.sizeDelta = new Vector2(0, image.rectTransform.sizeDelta.y);
+        
     }
 
     public void UpdateXpDisplay(int oldXp, int newXp, int requiredXp)

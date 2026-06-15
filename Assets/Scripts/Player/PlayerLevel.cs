@@ -16,7 +16,7 @@ public class PlayerLevel : MonoBehaviour
 
     public void AddXp(Enemy e)
     {
-       
+     
         int temp = xp;
         xp += 2;
         
@@ -27,7 +27,9 @@ public class PlayerLevel : MonoBehaviour
             level++;
             xp -= requiredXp;
             requiredXp = level * 10;
+           
         }
+       
         OnXpChange?.Invoke(temp, xp, requiredXp);
     }
 }
