@@ -1597,6 +1597,17 @@ MonoBehaviour:
   - {fileID: 971862743}
   - {fileID: 1661468637}
   player: {fileID: 859197735}
+--- !u!114 &461505748 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803748134255386522, guid: 9cab9e60568da1741be81c6df5ca00e4, type: 3}
+  m_PrefabInstance: {fileID: 1612726268}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdce30df7761ddb499d46a98434f55f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
 --- !u!1 &463756562
 GameObject:
   m_ObjectHideFlags: 0
@@ -1810,6 +1821,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 498418245}
   m_CullTransparentMesh: 1
+--- !u!114 &657463992 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803748134255386522, guid: 9cab9e60568da1741be81c6df5ca00e4, type: 3}
+  m_PrefabInstance: {fileID: 1601197106}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdce30df7761ddb499d46a98434f55f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
 --- !u!1 &719349121
 GameObject:
   m_ObjectHideFlags: 0
@@ -3107,7 +3129,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1045673858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3121,12 +3143,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaveSystem
   waves:
-  - duration: 1
+  - duration: 10
     waveInstances:
     - enemy: {fileID: 2803748134255386522, guid: 9cab9e60568da1741be81c6df5ca00e4, type: 3}
       spawnTime: 0.1
       time: 0
-      spawnAmount: 1
+      spawnAmount: 10
   - duration: 30
     waveInstances:
     - enemy: {fileID: 2803748134255386522, guid: f9fb600054500c440b581be76482c055, type: 3}
@@ -7508,6 +7530,17 @@ Transform:
   - {fileID: 437151281}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1928787958 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2803748134255386522, guid: 9cab9e60568da1741be81c6df5ca00e4, type: 3}
+  m_PrefabInstance: {fileID: 1162962230}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdce30df7761ddb499d46a98434f55f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
 --- !u!1 &1930311883
 GameObject:
   m_ObjectHideFlags: 0
@@ -7828,7 +7861,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyManager
   enemy: {fileID: 2803748134255386522, guid: f9fb600054500c440b581be76482c055, type: 3}
-  enemies: []
+  enemies:
+  - {fileID: 1928787958}
+  - {fileID: 461505748}
+  - {fileID: 657463992}
   time: 1
   timeCooldown: 1
 --- !u!4 &2122556900
