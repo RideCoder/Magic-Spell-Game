@@ -31,8 +31,8 @@ public class Player : MonoBehaviour
         { PlayerStat.FireRate, 1f },
         { PlayerStat.Damage, 1f },
         { PlayerStat.MaxHealth, 100f },
-        { PlayerStat.CritChance, 0.04f },
-        { PlayerStat.CritDamage, 2f },
+        { PlayerStat.CritChance, 1.00f },
+        { PlayerStat.CritDamage, 1f },
         { PlayerStat.Speed, 5f }
     };
     public List<Item> items = new List<Item>();

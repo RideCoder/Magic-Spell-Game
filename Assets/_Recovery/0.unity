@@ -5227,10 +5227,6 @@ MonoBehaviour:
       spawnTime: 3
       time: 0
       spawnAmount: 2
-    - enemy: {fileID: 2803748134255386522, guid: f9fb600054500c440b581be76482c055, type: 3}
-      spawnTime: 10
-      time: 0
-      spawnAmount: 1
   - duration: 60
     waveInstances:
     - enemy: {fileID: 2803748134255386522, guid: f9fb600054500c440b581be76482c055, type: 3}
@@ -7706,7 +7702,6 @@ MonoBehaviour:
   - {fileID: 3814279292963482672, guid: 917dc060763015d4babb428381a6205d, type: 3}
   - {fileID: 3814279292963482672, guid: b127372dd2a7a3040b162dd7ea37e961, type: 3}
   - {fileID: 3814279292963482672, guid: 011f4a62a55ed1c448d26991b1fdeee5, type: 3}
-  - {fileID: 3814279292963482672, guid: 85e690e5dad4a7c46935eb71a650fe09, type: 3}
 --- !u!1 &1646653096
 GameObject:
   m_ObjectHideFlags: 0
