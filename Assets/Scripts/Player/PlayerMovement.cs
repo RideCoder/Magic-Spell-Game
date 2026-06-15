@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
             xRotation += -Mouse.current.delta.value.y;
             yRotation += Mouse.current.delta.value.x;
             xRotation = Mathf.Clamp(xRotation, -179f, 179f);
-            Camera.main.transform.eulerAngles = new Vector3(xRotation, yRotation, 0) * .5f;
+            Player.cam.transform.eulerAngles = new Vector3(xRotation, yRotation, 0) * .5f;
 
         }
 
@@ -63,11 +63,11 @@ public class PlayerMovement : MonoBehaviour
             characterController.Move(new Vector3(0, yVel*Time.deltaTime, 0));
 
 
-        Vector3 forward = Camera.main.transform.forward;
+        Vector3 forward = Player.cam.transform.forward;
         forward.y = 0;
         forward.Normalize();
 
-        Vector3 right = Camera.main.transform.right;
+        Vector3 right = Player.cam.transform.right;
         right.y = 0;
         right.Normalize();
 

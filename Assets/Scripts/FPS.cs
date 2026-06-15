@@ -1,8 +1,10 @@
+using TMPro;
 using UnityEngine;
 
-public class PlayerMapRotation : MonoBehaviour
+public class FPS : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public TMP_Text text;
     void Start()
     {
         
@@ -11,6 +13,6 @@ public class PlayerMapRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.eulerAngles = new Vector3(0, 0, -Player.cam.transform.eulerAngles.y+270);
+        text.text = (1.0f/Time.deltaTime).ToString();
     }
 }

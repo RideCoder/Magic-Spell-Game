@@ -28,7 +28,7 @@ public class EnemyManager : MonoBehaviour
         Instance = this;
         for (int i = 0; i < 1; i++)
         {
-           // SpawnEnemy(enemy, Camera.main.transform.position+ new Vector3(Random.Range(-5, 5),0 , Random.Range(-5, 5)));
+           // SpawnEnemy(enemy, Player.cam.transform.position+ new Vector3(Random.Range(-5, 5),0 , Random.Range(-5, 5)));
         }
     }
    
@@ -36,21 +36,11 @@ public class EnemyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foreach (Enemy enemy in enemies)
+        for (int i = enemies.Count - 1; i >= 0; i--)
         {
-            enemy.Tick();
+            enemies[i].Tick();
         }
-        time -= Time.deltaTime;
-        if (time <= 0f)
-        {
-            /*Vector2 randomDir = Random.insideUnitCircle.normalized;
-            float distance = Random.Range(10f, 15f);
-            Vector3 spawnPos = Camera.main.transform.position +
-                   new Vector3(randomDir.x, 0, randomDir.y) * distance;
-
-            SpawnEnemy(enemy, spawnPos);
-            time = timeCooldown*Random.Range(.8f,1.2f);*/
-        }
+     
     }
     public void RemoveEnemy(Enemy enemy)
     {

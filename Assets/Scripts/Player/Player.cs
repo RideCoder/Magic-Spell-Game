@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     public static event Action<List<Hand>> OnHandAdded;
     public static event Action<List<Weapon>, Weapon, int> OnWeaponAdded;
     public Hand startHand;
+    public static Camera cam;
     public float health;
     public Dictionary<PlayerStat, float> stats = new()
     {
@@ -37,6 +38,11 @@ public class Player : MonoBehaviour
     };
     public List<Item> items = new List<Item>();
     public List<Hand> hands = new List<Hand>();
+
+    public void Awake()
+    {
+        cam = Camera.main;
+    }
     public void Start()
     {
        // AddHand(startHand);
@@ -84,12 +90,12 @@ public class Player : MonoBehaviour
             if (IsVisible(enemy))
             {
                 
-                if (Physics.Raycast(Camera.main.transform.position, enemy.transform.position - Camera.main.transform.position, out RaycastHit hit, Mathf.Infinity, 1))
+                if (Physics.Raycast(Player.cam.transform.position, enemy.transform.position - Player.cam.transform.position, out RaycastHit hit, Mathf.Infinity, 1))
                 {
                    
                     if (hit.collider.GetComponent<Enemy>() != null)
                     {
-                        Vector3 offset = enemy.transform.position - Camera.main.transform.position;
+                        Vector3 offset = enemy.transform.position - Player.cam.transform.position;
 
                         if (offset.sqrMagnitude < closest)
                         {
@@ -117,7 +123,7 @@ public class Player : MonoBehaviour
 
     private bool IsVisible(Enemy obj)
     {
-        Plane[] planes = GeometryUtility.CalculateFrustumPlanes(Camera.main);
+        Plane[] planes = GeometryUtility.CalculateFrustumPlanes(Player.cam);
 
         return planes.All(plane => plane.GetDistanceToPoint(obj.transform.position) >= 0);
 

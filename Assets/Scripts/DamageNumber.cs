@@ -12,7 +12,7 @@ public class DamageNumber : MonoBehaviour
     void Update()
     {
         transform.position += new Vector3(0, Time.deltaTime, 0);
-        transform.LookAt(Camera.main.transform);
+        transform.LookAt(Player.cam.transform);
         transform.Rotate(0, 180, 0);
 
     }

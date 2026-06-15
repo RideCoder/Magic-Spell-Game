@@ -22,8 +22,8 @@ public class WaveInstance
         {
            
             Vector2 randomDir = UnityEngine.Random.insideUnitCircle.normalized;
-            float distance = UnityEngine.Random.Range(10f, 15f);
-            Vector3 spawnPos = Camera.main.transform.position +
+            float distance = UnityEngine.Random.Range(25f, 50f);
+            Vector3 spawnPos = Player.cam.transform.position +
                    new Vector3(randomDir.x, 0, randomDir.y) * distance;
 
             EnemyManager.Instance.SpawnEnemy(enemy, spawnPos);

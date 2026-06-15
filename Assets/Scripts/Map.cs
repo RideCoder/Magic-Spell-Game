@@ -37,7 +37,7 @@ public class Map : MonoBehaviour
         {
             enemyIcons.Remove(key);
         }
-        transform.eulerAngles = new Vector3(0, 0, Camera.main.transform.eulerAngles.y + 180);
+        transform.eulerAngles = new Vector3(0, 0, Player.cam.transform.eulerAngles.y + 180);
    
         foreach (var enemy in EnemyManager.Instance.enemies)
         {
@@ -46,7 +46,7 @@ public class Map : MonoBehaviour
                 
                 RawImage clone = Instantiate(enemyIcon);
                 clone.rectTransform.SetParent(transform, false);
-                clone.rectTransform.anchoredPosition = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.z,0) * zoom - new Vector3(enemy.transform.position.x, enemy.transform.position.z, 0)* zoom;
+                clone.rectTransform.anchoredPosition = new Vector3(Player.cam.transform.position.x, Player.cam.transform.position.z,0) * zoom - new Vector3(enemy.transform.position.x, enemy.transform.position.z, 0)* zoom;
                 
                 enemyIcons.Add(enemy,clone);
             }
@@ -55,7 +55,7 @@ public class Map : MonoBehaviour
             
                 if (enemyIcons.TryGetValue(enemy, out RawImage clone))
                 {
-                    clone.rectTransform.anchoredPosition = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.z, 0) * zoom - new Vector3(enemy.transform.position.x, enemy.transform.position.z, 0) * zoom;
+                    clone.rectTransform.anchoredPosition = new Vector3(Player.cam.transform.position.x, Player.cam.transform.position.z, 0) * zoom - new Vector3(enemy.transform.position.x, enemy.transform.position.z, 0) * zoom;
                     
                 
                 }

@@ -26,7 +26,7 @@ namespace TMPro.Examples
             if (!enabled)
                 return;
 
-            m_camera = Camera.main;
+            m_camera = Player.cam;
 
             GameObject frameCounter = new GameObject("Frame Counter");
             m_frameCounter_transform = frameCounter.transform;
