@@ -9,6 +9,8 @@ public class Projectile : MonoBehaviour
     public Rigidbody rb;
     public float damage;
     public Weapon weapon;
+    public float critChance = 0.04f;
+    public float critDamage = 2f;
     public List<IProjectileEffect> items = new List<IProjectileEffect>();
     void Start()
     {
@@ -42,7 +44,15 @@ public class Projectile : MonoBehaviour
                 {
 
                 }
-                collision.gameObject.GetComponent<IDamageable>().TakeDamage(damage);
+                if (Random.Range(0, 1f) <= critChance)
+                {
+                    collision.gameObject.GetComponent<IDamageable>().TakeDamage(damage * critDamage);
+                }
+                else
+                {
+                    collision.gameObject.GetComponent<IDamageable>().TakeDamage(damage);
+                }
+
             }
 
 

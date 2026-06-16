@@ -9,6 +9,9 @@ public class Weapon : MonoBehaviour
     public Projectile projectile;
     public float cooldown = .01f;
     public float currentCooldown = .01f;
+    public float projectileSpeed = 50f;
+    public float critChance = 0.04f;
+    public float critDamage = 2f;
     public Texture weaponImage;
     public Player player;
     
@@ -40,6 +43,8 @@ public class Weapon : MonoBehaviour
             clone.items.Add(effect);
         }
         clone.weapon = this;
+        clone.critChance = critChance * player.stats[PlayerStat.CritChance];
+        clone.critDamage = critDamage * player.stats[PlayerStat.CritDamage];
         clone.damage = projectile.damage * player.stats[PlayerStat.Damage];
         clone.direction = player.aimPosition.normalized  * 25f ;
 
