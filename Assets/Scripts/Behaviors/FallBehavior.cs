@@ -8,12 +8,12 @@ public class FallBehavior : EnemyBehavior
 
     public override void Behavior(Enemy e)
     {
-        if (e.rb == null)
+        if (e.controller == null)
         {
             return;
         }
 
-        /*if (!e.controller.isGrounded)
+        if (!e.controller.isGrounded)
         {
             yVel -= (gravity * Time.deltaTime);
         }
@@ -21,7 +21,7 @@ public class FallBehavior : EnemyBehavior
         {
             yVel = 0f;
         }
-        e.controller.Move(new Vector3(0, yVel * Time.deltaTime, 0));*/
+        e.controller.Move(new Vector3(0, yVel * Time.deltaTime, 0));
      
     }
 }

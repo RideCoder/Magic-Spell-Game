@@ -13,11 +13,11 @@ public class Enemy : MonoBehaviour, IDamageable
     public static event Action<Enemy, float> OnDamaged;
     public event Action<float> OnThisEnemyDamaged;
     public static event Action<Enemy> OnDeath;
-    public Rigidbody rb;
+    public CharacterController controller;
 
     public void Awake()
     {
-        rb = GetComponent<Rigidbody>();  
+        controller = GetComponent<CharacterController>();  
     }
     // Update is called once per frame
     public void Tick()
@@ -42,8 +42,8 @@ public class Enemy : MonoBehaviour, IDamageable
             EnemyManager.Instance.RemoveEnemy(this);
         }
     }
-   
-    private void OnCollisionStay(Collision collision)
+ 
+    private void OnControllerColliderHit(ControllerColliderHit collision)
     {
         
         if (collision.gameObject.GetComponent<Player>() != null)

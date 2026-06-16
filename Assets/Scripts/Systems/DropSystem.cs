@@ -15,7 +15,7 @@ public class DropSystem : MonoBehaviour
   
     public void Drop(Enemy enemy)
     {
-        if (Random.Range(0, 7) == 5)
+        if (Random.Range(0, 10) == 5)
         {
             GameObject dropClone = Instantiate(drops[Random.Range(0, drops.Count)]);
             dropClone.transform.position = enemy.transform.position;
