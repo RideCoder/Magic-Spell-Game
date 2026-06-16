@@ -42,8 +42,8 @@ public class Enemy : MonoBehaviour, IDamageable
             EnemyManager.Instance.RemoveEnemy(this);
         }
     }
-
-    private void OnControllerColliderHit(ControllerColliderHit collision)
+   
+    private void OnCollisionStay(Collision collision)
     {
         
         if (collision.gameObject.GetComponent<Player>() != null)

@@ -47,5 +47,8 @@ MonoBehaviour:
   projectile: {fileID: -4016434512282956031, guid: 5eb5edcdf696e3b47a36d86be141f417, type: 3}
   cooldown: 0.5
   currentCooldown: 0.5
+  projectileSpeed: 50
+  critChance: 0.04
+  critDamage: 2
   weaponImage: {fileID: 2800000, guid: d379683845b635445a8fad19258f4152, type: 3}
   player: {fileID: 0}
