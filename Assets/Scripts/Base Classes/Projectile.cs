@@ -12,7 +12,8 @@ public class Projectile : MonoBehaviour
     public List<IProjectileEffect> items = new List<IProjectileEffect>();
     void Start()
     {
-     rb = GetComponent<Rigidbody>();       
+     rb = GetComponent<Rigidbody>();      
+       // transform.eulerAngles = new Vector3(90, 0, Mathf.Atan2(transform.position.x - Player.cam.transform.position.x, transform.position.z - Player.cam.transform.position.z) * Mathf.Rad2Deg);
     }
 
     // Update is called once per frame
@@ -44,8 +45,13 @@ public class Projectile : MonoBehaviour
                 collision.gameObject.GetComponent<IDamageable>().TakeDamage(damage);
             }
 
-     
-          
+
+            for (int i = transform.childCount - 1; i >= 0; i--)
+            {
+               // transform.GetChild(i).transform.localScale = Vector3.one * .5f;
+                transform.GetChild(i).SetParent(null);
+                
+            }
             Destroy(gameObject);
         }
     }

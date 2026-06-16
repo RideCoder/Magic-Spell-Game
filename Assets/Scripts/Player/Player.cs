@@ -89,13 +89,17 @@ public class Player : MonoBehaviour
         {
             if (IsVisible(enemy))
             {
-                
-                if (Physics.Raycast(Player.cam.transform.position, enemy.transform.position - Player.cam.transform.position, out RaycastHit hit, Mathf.Infinity, 1))
+                Vector3 muzzle = Player.cam.transform.position
+                + Player.cam.transform.forward * -0.25f
+                + Player.cam.transform.up * 0.3f
+                + Player.cam.transform.right * -0.5f;
+                //+ Player.cam.transform.forward * -.25f + Player.cam.transform.up * -.3f + Player.cam.transform.right * .5f
+                if (Physics.Raycast(muzzle, enemy.transform.position - muzzle, out RaycastHit hit, Mathf.Infinity, 1))
                 {
-                   
+                  
                     if (hit.collider.GetComponent<Enemy>() != null)
                     {
-                        Vector3 offset = enemy.transform.position - Player.cam.transform.position;
+                        Vector3 offset = enemy.transform.position - (Player.cam.transform.position);
 
                         if (offset.sqrMagnitude < closest)
                         {

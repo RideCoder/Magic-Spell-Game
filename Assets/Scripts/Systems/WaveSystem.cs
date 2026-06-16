@@ -22,7 +22,7 @@ public class WaveInstance
         {
            
             Vector2 randomDir = UnityEngine.Random.insideUnitCircle.normalized;
-            float distance = UnityEngine.Random.Range(25f, 50f);
+            float distance = UnityEngine.Random.Range(10f, 15f);
             Vector3 spawnPos = Player.cam.transform.position +
                    new Vector3(randomDir.x, 0, randomDir.y) * distance;
 
