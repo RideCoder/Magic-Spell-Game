@@ -91,8 +91,8 @@ public class Player : MonoBehaviour
             {
                 Vector3 muzzle = Player.cam.transform.position
                 + Player.cam.transform.forward * -0.25f
-                + Player.cam.transform.up * 0.3f
-                + Player.cam.transform.right * -0.5f;
+                + Player.cam.transform.up * -0.3f
+                + Player.cam.transform.right * 0.5f;
                 //+ Player.cam.transform.forward * -.25f + Player.cam.transform.up * -.3f + Player.cam.transform.right * .5f
                 if (Physics.Raycast(muzzle, enemy.transform.position - muzzle, out RaycastHit hit, Mathf.Infinity, 1))
                 {

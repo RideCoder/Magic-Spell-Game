@@ -48,9 +48,11 @@ public class Projectile : MonoBehaviour
 
             for (int i = transform.childCount - 1; i >= 0; i--)
             {
-               // transform.GetChild(i).transform.localScale = Vector3.one * .5f;
-                transform.GetChild(i).SetParent(null);
-                
+
+                Transform child = transform.GetChild(i);
+                child.SetParent(null);
+                child.localScale = Vector3.one;
+
             }
             Destroy(gameObject);
         }
