@@ -5,6 +5,7 @@ public class ProjectileParticle : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     Projectile proj;
+    public ParticleSystem particleHit;
     void Start()
     {
         proj = GetComponentInParent<Projectile>();
@@ -15,6 +16,11 @@ public class ProjectileParticle : MonoBehaviour
     {
         if (proj == null)
         {
+            if (particleHit != null)
+            {
+                ParticleSystem clone = Instantiate(particleHit);
+                clone.transform.position = transform.position;
+            }
             GetComponent<ParticleSystem>().Stop();
             StartCoroutine(Delete());
         }

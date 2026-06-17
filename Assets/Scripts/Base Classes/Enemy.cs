@@ -12,9 +12,11 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public static event Action<Enemy, float> OnDamaged;
     public event Action<float> OnThisEnemyDamaged;
+    public event Action OnThisEnemyDeath;
     public static event Action<Enemy> OnDeath;
     public CharacterController controller;
 
+    public GameObject deathAnimation;
     public void Awake()
     {
         controller = GetComponent<CharacterController>();  
@@ -37,7 +39,7 @@ public class Enemy : MonoBehaviour, IDamageable
         health -= damage;
         if (health <= 0f)
         {
-           
+            OnThisEnemyDeath?.Invoke();
             OnDeath?.Invoke(this);
             EnemyManager.Instance.RemoveEnemy(this);
         }
