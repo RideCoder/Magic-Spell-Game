@@ -11,14 +11,14 @@ public class PlayerLevel : MonoBehaviour
     public void Start()
     {
         requiredXp = level * 10;
-        Enemy.OnDeath += AddXp;
+        
     }
 
-    public void AddXp(Enemy e)
+    public void AddXp(int amount)
     {
      
         int temp = xp;
-        xp += 2;
+        xp += amount;
         
         
         if (xp >= requiredXp)

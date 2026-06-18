@@ -72,7 +72,7 @@ public class ShowEnemies : MonoBehaviour
                // float angle = Mathf.Atan2(Player.cam.transform.position.x - enemy.transform.position.x, Player.cam.transform.position.z - enemy.transform.position.z);
                 //  clone.rectTransform.anchoredPosition = new Vector3(Player.cam.transform.position.x, Player.cam.transform.position.z,0) * zoom - new Vector3(enemy.transform.position.x, enemy.transform.position.z, 0)* zoom;
                 clone.rectTransform.anchoredPosition = new Vector3(Mathf.Sin(angle) * 500f, Mathf.Cos(angle) * 500f, 0);
-                clone.color = new Color(255, 255, 255, 1f - ((magnitude * 60f) / 255f));
+                clone.color = new Color(255, 255, 255, 1f - ((magnitude * 30f) / 255f));
                 enemyIcons.Add(enemy,clone);
             }
             else
@@ -87,10 +87,10 @@ public class ShowEnemies : MonoBehaviour
                     //  clone.rectTransform.anchoredPosition = new Vector3(Player.cam.transform.position.x, Player.cam.transform.position.z,0) * zoom - new Vector3(enemy.transform.position.x, enemy.transform.position.z, 0)* zoom;
                     clone.rectTransform.anchoredPosition = new Vector3(Mathf.Sin(angle) * 500f, Mathf.Cos(angle) * 500f, 0);
 
-                    Debug.Log("Magnitude: "+magnitude);
+                    //Debug.Log("Magnitude: "+magnitude);
                     //255/300
                     
-                    clone.color = new Color(255, 255, 255, 1f - ((magnitude * 60f) / 255f));
+                    clone.color = new Color(255, 255, 255, 1f - ((magnitude * 30f) / 255f));
                 }
                     
                     

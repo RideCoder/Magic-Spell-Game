@@ -9,9 +9,11 @@ public class Upgrade : MonoBehaviour
 
     public PlayerStat stat;
     public float change;
-
+    public Player player;
+    public Weapon weapon;
     public void Start()
     {
+        player = FindFirstObjectByType<Player>();
         RandomizeStats();
         
     }
@@ -21,12 +23,12 @@ public class Upgrade : MonoBehaviour
 
 
         int randomIndex = UnityEngine.Random.Range(0, values.Length);
-
+        weapon = player.weapons[UnityEngine.Random.Range(0,player.weapons.Count)]; 
 
         stat = (PlayerStat)values.GetValue(randomIndex);
         change = UnityEngine.Random.Range(1.05f, 1.16f);
 
-        GetComponentInChildren<TMP_Text>().text = stat.ToString();  
+        GetComponentInChildren<TMP_Text>().text = weapon.ToString() + " "+stat.ToString() + " "+ change.ToString() + "%";  
 
     }
 }

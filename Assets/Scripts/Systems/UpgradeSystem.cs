@@ -16,7 +16,7 @@ public class UpgradeSystem : MonoBehaviour
         foreach (Button button in buttons)
         {
             button.onClick.AddListener(
-                () => ApplyUpgrade(button.GetComponent<Upgrade>().stat, button.GetComponent<Upgrade>().change)
+                () => ApplyUpgrade(button.GetComponent<Upgrade>().stat, button.GetComponent<Upgrade>().change, button.GetComponent<Upgrade>().weapon)
                 );
               
         }
@@ -33,9 +33,10 @@ public class UpgradeSystem : MonoBehaviour
 
     }
 
-    public void ApplyUpgrade(PlayerStat stat, float change)
+    public void ApplyUpgrade(PlayerStat stat, float change, Weapon weapon)
     {
         OnStatusChange?.Invoke(false);
+        //player.weapons[player.weapons.IndexOf(weapon)].;
         player.stats[stat] *= change;
         Time.timeScale = 1;
         Cursor.visible = false;
