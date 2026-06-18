@@ -56,7 +56,7 @@ public class HandsUI : MonoBehaviour
             Destroy(hand);
         }
         images.Clear();
-        Debug.Log(hands.Count);
+      
         int handNum = 1;
         float yPos = 0f;
         float height = 850;

@@ -4,19 +4,49 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+public enum WeaponStat
+{
+    FireRate,
+    Damage,
+    CritChance,
+    CritDamage,
+    ProjectileSpeed,
+}
+
+[System.Serializable]
+public struct WeaponStatEntry
+{
+    public WeaponStat stat;
+    public float value;
+}
 public class Weapon : MonoBehaviour
 {
     public Projectile projectile;
     public float cooldown = .01f;
     public float currentCooldown = .01f;
-    public float projectileSpeed = 50f;
-    public float critChance = 0.04f;
-    public float critDamage = 2f;
-    public float damage = 9f;
+    public List<WeaponStatEntry> weaponStats;
+    
+    public Dictionary<WeaponStat, float> stats = new()
+    {
+        { WeaponStat.FireRate, 1f },
+        { WeaponStat.Damage, 1f },
+        { WeaponStat.ProjectileSpeed, 25f },
+        { WeaponStat.CritChance, 1.00f },
+        { WeaponStat.CritDamage, 1f },
+   
+    };
     public Texture weaponImage;
     public Player player;
-    
-    
+    public string weaponName;
+
+    public void Start()
+    {
+        foreach (var weapon in weaponStats)
+        {
+            stats[weapon.stat] = weapon.value;
+        }
+    }
     public void Tick()
     {
        
@@ -25,7 +55,7 @@ public class Weapon : MonoBehaviour
         if (currentCooldown <= 0f)
         {
             Fire();
-            currentCooldown = cooldown/player.stats[PlayerStat.FireRate];
+            currentCooldown = (cooldown/player.stats[PlayerStat.FireRate])/stats[WeaponStat.FireRate];
         }
     }
     public void Fire()
@@ -44,10 +74,10 @@ public class Weapon : MonoBehaviour
             clone.items.Add(effect);
         }
         clone.weapon = this;
-        clone.critChance = critChance * player.stats[PlayerStat.CritChance];
-        clone.critDamage = critDamage * player.stats[PlayerStat.CritDamage];
-        clone.damage = damage * player.stats[PlayerStat.Damage];
-        clone.direction = player.aimPosition.normalized  * 25f ;
+        clone.critChance = stats[WeaponStat.CritChance] * player.stats[PlayerStat.CritChance];
+        clone.critDamage = stats[WeaponStat.CritDamage] * player.stats[PlayerStat.CritDamage];
+        clone.damage = stats[WeaponStat.Damage] * player.stats[PlayerStat.Damage];
+        clone.direction = player.aimPosition.normalized  * stats[WeaponStat.ProjectileSpeed];
 
     }
 }
