@@ -9,6 +9,7 @@ public class Projectile : MonoBehaviour
     public Rigidbody rb;
     public float damage;
     public Weapon weapon;
+    public float timeExisted = 0f;
     public float critChance = 0.04f;
     public float critDamage = 2f;
     public List<IProjectileEffect> items = new List<IProjectileEffect>();
@@ -33,6 +34,8 @@ public class Projectile : MonoBehaviour
         }
         foreach (ProjectileBehavior pb in behaviors)
         {
+
+            
             pb.Behavior(this);
         }
     }

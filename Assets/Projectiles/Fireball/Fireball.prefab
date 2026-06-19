@@ -53,10 +53,11 @@ MonoBehaviour:
   rb: {fileID: 0}
   damage: 3
   weapon: {fileID: 0}
+  timeExisted: 0
   critChance: 0.04
   critDamage: 2
   behaviors:
-  - {fileID: 2998827425194725666, guid: 2c12e2339a1a1324d94c003bcba6a133, type: 3}
+  - {fileID: -1492391180775501057, guid: fc5bddb1a38508c49bb78e53b2655604, type: 3}
 --- !u!135 &6002994207341522
 SphereCollider:
   m_ObjectHideFlags: 0
