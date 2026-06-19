@@ -74,8 +74,9 @@ public class Weapon : MonoBehaviour
             clone.items.Add(effect);
         }
         clone.weapon = this;
-        clone.critChance = stats[WeaponStat.CritChance] * player.stats[PlayerStat.CritChance];
+        clone.critChance = (stats[WeaponStat.CritChance] * player.stats[PlayerStat.CritChance])-1;
         clone.critDamage = stats[WeaponStat.CritDamage] * player.stats[PlayerStat.CritDamage];
+        
         clone.damage = stats[WeaponStat.Damage] * player.stats[PlayerStat.Damage];
         clone.direction = player.aimPosition.normalized  * stats[WeaponStat.ProjectileSpeed];
 

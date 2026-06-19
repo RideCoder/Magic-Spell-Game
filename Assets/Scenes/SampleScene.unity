@@ -1580,10 +1580,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
+  m_fontSize: 26.85
   m_fontSizeBase: 24
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -2135,17 +2135,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 842ffe8841d54e64995202aa1555d7c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  lookSensitivity: 0.5
   gravity: -9.81
-  jumpForce: 5
   yVel: 0
-  groundAcceleration: 60
-  groundFriction: 55
-  airAcceleration: 15
-  airResistance: 4
-  horizontalVelocity: {x: 0, y: 0, z: 0}
   xVel: 0
   zVel: 0
+  speed: 5
+  oldMouseVel: {x: 0, y: 0}
   player: {fileID: 0}
 --- !u!114 &859197735
 MonoBehaviour:
@@ -2412,6 +2407,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
   stat: 0
   change: 1.07
+  player: {fileID: 0}
+  weapon: {fileID: 0}
 --- !u!114 &971862743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2975,63 +2972,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1796669748}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1098522459
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1394917255230325935, guid: f9fb600054500c440b581be76482c055, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1394917255230325935, guid: f9fb600054500c440b581be76482c055, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1394917255230325935, guid: f9fb600054500c440b581be76482c055, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1394917255230325935, guid: f9fb600054500c440b581be76482c055, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1394917255230325935, guid: f9fb600054500c440b581be76482c055, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1394917255230325935, guid: f9fb600054500c440b581be76482c055, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1394917255230325935, guid: f9fb600054500c440b581be76482c055, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1394917255230325935, guid: f9fb600054500c440b581be76482c055, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1394917255230325935, guid: f9fb600054500c440b581be76482c055, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1394917255230325935, guid: f9fb600054500c440b581be76482c055, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3865786828538485648, guid: f9fb600054500c440b581be76482c055, type: 3}
-      propertyPath: m_Name
-      value: Pumpkin
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f9fb600054500c440b581be76482c055, type: 3}
 --- !u!1 &1119237828
 GameObject:
   m_ObjectHideFlags: 0
@@ -3849,6 +3789,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
   stat: 0
   change: 1.07
+  player: {fileID: 0}
+  weapon: {fileID: 0}
 --- !u!43 &1392917685
 Mesh:
   m_ObjectHideFlags: 0
@@ -5045,10 +4987,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DropSystem
   drops:
-  - {fileID: 3814279292963482672, guid: e8b27410e6c841e4bb77845a464f7928, type: 3}
-  - {fileID: 3814279292963482672, guid: 917dc060763015d4babb428381a6205d, type: 3}
-  - {fileID: 3814279292963482672, guid: b127372dd2a7a3040b162dd7ea37e961, type: 3}
-  - {fileID: 3814279292963482672, guid: 011f4a62a55ed1c448d26991b1fdeee5, type: 3}
+  - {fileID: 7693403495769472902, guid: 49ce160c79a87954b92ceef33a5b84aa, type: 3}
 --- !u!1 &1646653096
 GameObject:
   m_ObjectHideFlags: 0
@@ -5182,6 +5121,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
   stat: 0
   change: 1.07
+  player: {fileID: 0}
+  weapon: {fileID: 0}
 --- !u!114 &1661468637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6309,10 +6250,7 @@ MonoBehaviour:
   images: []
   weapons: []
   player: {fileID: 859197735}
-  bobFrequency: 10
-  horizontalBob: 60
-  verticalBob: 60
-  bobSmoothing: 8
+  playerPos: {x: 0, y: 0, z: 0}
 --- !u!1001 &1957244213
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6370,17 +6308,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b127372dd2a7a3040b162dd7ea37e961, type: 3}
---- !u!114 &2055480131 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2803748134255386522, guid: f9fb600054500c440b581be76482c055, type: 3}
-  m_PrefabInstance: {fileID: 1098522459}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdce30df7761ddb499d46a98434f55f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Enemy
 --- !u!1 &2084459798
 GameObject:
   m_ObjectHideFlags: 0
@@ -6496,8 +6423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyManager
   enemy: {fileID: 2803748134255386522, guid: f9fb600054500c440b581be76482c055, type: 3}
-  enemies:
-  - {fileID: 2055480131}
+  enemies: []
   time: 1
   timeCooldown: 1
 --- !u!4 &2122556900
@@ -6885,5 +6811,4 @@ SceneRoots:
   - {fileID: 1613308385}
   - {fileID: 1504481030}
   - {fileID: 1957244213}
-  - {fileID: 1098522459}
   - {fileID: 1796669748}

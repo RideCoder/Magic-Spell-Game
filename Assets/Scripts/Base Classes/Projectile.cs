@@ -40,12 +40,14 @@ public class Projectile : MonoBehaviour
         {
             if (collision.gameObject.GetComponent<IDamageable>() != null)
             {
+                
                 foreach (IProjectileEffect item in items)
                 {
 
                 }
                 if (Random.Range(0, 1f) <= critChance)
                 {
+
                     collision.gameObject.GetComponent<IDamageable>().TakeDamage(damage * critDamage);
                 }
                 else

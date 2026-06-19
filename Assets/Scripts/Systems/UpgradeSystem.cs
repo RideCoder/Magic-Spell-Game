@@ -33,11 +33,13 @@ public class UpgradeSystem : MonoBehaviour
 
     }
 
-    public void ApplyUpgrade(PlayerStat stat, float change, Weapon weapon)
+    public void ApplyUpgrade(WeaponStat stat, float change, Weapon weapon)
     {
         OnStatusChange?.Invoke(false);
-        //player.weapons[player.weapons.IndexOf(weapon)].;
-        player.stats[stat] *= change;
+        player.weapons[player.weapons.IndexOf(weapon)].stats[stat] *= change;
+        Debug.Log("Stat: " + stat);
+        Debug.Log("Stat Value New: " + player.weapons[player.weapons.IndexOf(weapon)].stats[stat]);
+        //player.stats[stat] *= change;
         Time.timeScale = 1;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
