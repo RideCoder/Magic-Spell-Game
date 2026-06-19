@@ -12,6 +12,7 @@ public class Projectile : MonoBehaviour
     public float critChance = 0.04f;
     public float critDamage = 2f;
     public List<IProjectileEffect> items = new List<IProjectileEffect>();
+    public List<ProjectileBehavior> behaviors = new List<ProjectileBehavior>();
     void Start()
     {
      rb = GetComponent<Rigidbody>();      
@@ -30,7 +31,10 @@ public class Projectile : MonoBehaviour
         {
             effect.OnProjectileUpdate(this);
         }
-        rb.MovePosition(transform.position + direction * .01f);
+        foreach (ProjectileBehavior pb in behaviors)
+        {
+            pb.Behavior(this);
+        }
     }
    
     private void OnTriggerEnter(Collider collision)

@@ -63,7 +63,7 @@ public class Weapon : MonoBehaviour
 
 
         
-        Projectile clone = Instantiate(projectile,(Player.cam.transform.position+(Player.cam.transform.forward * -.25f+Player.cam.transform.up * -.3f+Player.cam.transform.right * .5f)), Quaternion.identity);
+        Projectile clone = Instantiate(projectile,(Player.cam.transform.position), Quaternion.identity);
         foreach (IOnWeaponFire item in player.items.OfType<IOnWeaponFire>())
         {
             item.OnWeaponFire(this);

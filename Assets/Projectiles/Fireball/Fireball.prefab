@@ -55,6 +55,8 @@ MonoBehaviour:
   weapon: {fileID: 0}
   critChance: 0.04
   critDamage: 2
+  behaviors:
+  - {fileID: 2998827425194725666, guid: 2c12e2339a1a1324d94c003bcba6a133, type: 3}
 --- !u!135 &6002994207341522
 SphereCollider:
   m_ObjectHideFlags: 0
