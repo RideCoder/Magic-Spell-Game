@@ -12,6 +12,8 @@ public class Projectile : MonoBehaviour
     public float timeExisted = 0f;
     public float critChance = 0.04f;
     public float critDamage = 2f;
+    public int index = 0;
+    public int count = 0;
     public List<IProjectileEffect> items = new List<IProjectileEffect>();
     public List<ProjectileBehavior> behaviors = new List<ProjectileBehavior>();
     void Start()
@@ -24,7 +26,7 @@ public class Projectile : MonoBehaviour
     void Update()
     {
         
-        transform.eulerAngles = new Vector3(0, Mathf.Atan2(transform.position.x - Player.cam.transform.position.x, transform.position.z - Player.cam.transform.position.z) * Mathf.Rad2Deg, 0);
+       // transform.eulerAngles = new Vector3(transform.eulerAngles.x, Mathf.Atan2(transform.position.x - Player.cam.transform.position.x, transform.position.z - Player.cam.transform.position.z) * Mathf.Rad2Deg, 0);
     }
     private void FixedUpdate()
     {
@@ -39,32 +41,31 @@ public class Projectile : MonoBehaviour
             pb.Behavior(this);
         }
     }
-   
-    private void OnTriggerEnter(Collider collision)
+    public virtual void Damage(Collider collision)
     {
-        
-        if (collision.gameObject.layer == 0)
+        if (collision.gameObject.GetComponent<IDamageable>() != null)
         {
-            if (collision.gameObject.GetComponent<IDamageable>() != null)
+
+            foreach (IProjectileEffect item in items)
             {
-                
-                foreach (IProjectileEffect item in items)
-                {
-
-                }
-                if (Random.Range(0, 1f) <= critChance)
-                {
-
-                    collision.gameObject.GetComponent<IDamageable>().TakeDamage(damage * critDamage);
-                }
-                else
-                {
-                    collision.gameObject.GetComponent<IDamageable>().TakeDamage(damage);
-                }
 
             }
+            if (Random.Range(0, 1f) <= critChance)
+            {
 
+                collision.gameObject.GetComponent<IDamageable>().TakeDamage(damage * critDamage);
+            }
+            else
+            {
+                collision.gameObject.GetComponent<IDamageable>().TakeDamage(damage);
+            }
 
+        }
+    }
+
+    public virtual void RemoveVisual()
+    {
+        
             for (int i = transform.childCount - 1; i >= 0; i--)
             {
 
@@ -73,7 +74,22 @@ public class Projectile : MonoBehaviour
                 child.localScale = Vector3.one;
 
             }
-            Destroy(gameObject);
+    }
+
+    public virtual void OnHit()
+    {
+
+        Destroy(gameObject);
+    }
+    private void OnTriggerEnter(Collider collision)
+    {
+        
+        if (collision.gameObject.layer == 0)
+        {
+            Damage(collision);
+            RemoveVisual();
+            OnHit();
+
         }
     }
 }

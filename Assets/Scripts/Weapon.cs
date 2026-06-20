@@ -26,7 +26,7 @@ public class Weapon : MonoBehaviour
     public float cooldown = .01f;
     public float currentCooldown = .01f;
     public List<WeaponStatEntry> weaponStats;
-    
+   
     public Dictionary<WeaponStat, float> stats = new()
     {
         { WeaponStat.FireRate, 1f },
@@ -58,7 +58,7 @@ public class Weapon : MonoBehaviour
             currentCooldown = (cooldown/player.stats[PlayerStat.FireRate])/stats[WeaponStat.FireRate];
         }
     }
-    public virtual void Fire()
+    public virtual Projectile Fire()
     {
 
 
@@ -79,6 +79,6 @@ public class Weapon : MonoBehaviour
         
         clone.damage = stats[WeaponStat.Damage] * player.stats[PlayerStat.Damage];
         clone.direction = player.aimPosition.normalized  * stats[WeaponStat.ProjectileSpeed];
-
+        return clone;
     }
 }
