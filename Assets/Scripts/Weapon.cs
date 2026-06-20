@@ -47,7 +47,7 @@ public class Weapon : MonoBehaviour
             stats[weapon.stat] = weapon.value;
         }
     }
-    public void Tick()
+    public virtual void Tick()
     {
        
         currentCooldown -= Time.deltaTime;
@@ -58,7 +58,7 @@ public class Weapon : MonoBehaviour
             currentCooldown = (cooldown/player.stats[PlayerStat.FireRate])/stats[WeaponStat.FireRate];
         }
     }
-    public void Fire()
+    public virtual void Fire()
     {
 
 
