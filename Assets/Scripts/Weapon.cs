@@ -14,6 +14,7 @@ public enum WeaponStat
     ProjectileSpeed,
     ProjectileCount,
     ProjectileSize,
+    Pierce,
 }
 
 [System.Serializable]

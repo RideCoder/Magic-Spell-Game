@@ -19,6 +19,7 @@ public class OmniShot : Weapon
         { WeaponStat.CritChance, 1.00f },
         { WeaponStat.CritDamage, 1f },
         { WeaponStat.ProjectileSize, 1f },
+            {WeaponStat.Pierce, 1f }
 
 
     };
@@ -36,8 +37,18 @@ public class OmniShot : Weapon
             currentCooldown = cooldown;//(cooldown / player.stats[PlayerStat.FireRate]) / stats[WeaponStat.FireRate];
         }
     }
+    public override Projectile Fire()
+    {
+
+
+        Projectile p = base.Fire();
+        p.pierce = stats[WeaponStat.Pierce];
 
 
 
-   
+        return null;
+    }
+
+
+
 }

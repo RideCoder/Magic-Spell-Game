@@ -15,6 +15,7 @@ public class Projectile : MonoBehaviour
     public float originalSize = 0.25f;
     public int index = 0;
     public int count = 0;
+    public float pierce = 0f;
     public List<IProjectileEffect> items = new List<IProjectileEffect>();
     public List<ProjectileBehavior> behaviors = new List<ProjectileBehavior>();
     void Start()

@@ -26,7 +26,7 @@ public class PlayerLevel : MonoBehaviour
             OnLevelChange?.Invoke();
             level++;
             xp -= requiredXp;
-            requiredXp = 1 * 10;
+            requiredXp = level * 10;
            
         }
        

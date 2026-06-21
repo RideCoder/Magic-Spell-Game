@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -6804883391892753159}
   - component: {fileID: 8087378829577306890}
   m_Layer: 6
-  m_Name: OmniShot
+  m_Name: OmniBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

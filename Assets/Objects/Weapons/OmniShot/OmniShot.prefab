@@ -45,13 +45,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OmniShot
   projectile: {fileID: 8087378829577306890, guid: 464576be29012a24ab7fe720762511fd, type: 3}
-  cooldown: 0.1
-  currentCooldown: 0.1
+  cooldown: 1
+  currentCooldown: 1
   weaponStats:
   - stat: 1
     value: 6
   - stat: 2
     value: 1.5
+  - stat: 4
+    value: 50
+  - stat: 7
+    value: 5
   projectiles: []
   weaponImage: {fileID: 2800000, guid: 2badcee165cfd394f81316ac52906e31, type: 3}
   player: {fileID: 0}

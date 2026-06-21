@@ -5,25 +5,34 @@ using UnityEngine;
 public class OmniBullet : Projectile
 {
 
-
+    
     public bool specialHit = true;
-    
-    
+
+
     public override void OnHit()
     {
         if (specialHit)
         {
             GameObject clone = Instantiate(gameObject);
             clone.transform.position += transform.right * 5f;
-            clone.GetComponent<OmniBullet>().specialHit = false;
-            clone.GetComponent<OmniBullet>().direction += new Vector3(0, -90, 0);
+            var b1 = clone.GetComponent<OmniBullet>();
+            b1.specialHit = false;
+            b1.direction = Quaternion.Euler(0, -90, 0) * direction;
 
             GameObject clone2 = Instantiate(gameObject);
             clone2.transform.position -= transform.right * 5f;
-            clone2.GetComponent<OmniBullet>().specialHit = false;
-            clone2.GetComponent<OmniBullet>().direction += new Vector3(0, 90, 0);
+            var b2 = clone2.GetComponent<OmniBullet>();
+            b2.specialHit = false;
+            b2.direction = Quaternion.Euler(0, 90, 0) * direction;
         }
-        Destroy(gameObject);
+        
+        if (pierce < 1)
+        {
+            Destroy(gameObject);
+        }
+        pierce--;
+       
     }
-   
+
+
 }

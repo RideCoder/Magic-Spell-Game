@@ -15,5 +15,9 @@ public class Dissolve : MonoBehaviour
         t -= Time.deltaTime;
         Material material = GetComponent<MeshRenderer>().material;
         material.SetFloat("_Dissolve", t);
+        if (t < 0f)
+        {
+            Destroy(gameObject);
+        }
     }
 }
