@@ -47,10 +47,14 @@ MonoBehaviour:
   projectile: {fileID: -5431342001396291730, guid: 7e44714c0108747479990d0b9f39a365, type: 3}
   cooldown: 1
   currentCooldown: 1
-  weaponStats: []
+  weaponStats:
+  - stat: 4
+    value: 50
+  - stat: 1
+    value: 6
+  projectiles: []
   weaponImage: {fileID: 2800000, guid: a0fc465d6cf04254a2938578735e2383, type: 3}
   player: {fileID: 0}
   weaponName: Sword
   swordCount: 0
-  projectileCount: 4
-  projectiles: []
+  projectileCount: 16

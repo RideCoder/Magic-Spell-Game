@@ -15,8 +15,9 @@ public class UpgradeSystem : MonoBehaviour
         PlayerLevel.OnLevelChange += LeveledUp;
         foreach (Button button in buttons)
         {
+            Upgrade upg = button.GetComponent<Upgrade>();
             button.onClick.AddListener(
-                () => ApplyUpgrade(button.GetComponent<Upgrade>().stat, button.GetComponent<Upgrade>().change, button.GetComponent<Upgrade>().weapon)
+                () => ApplyUpgrade(upg.stat, upg.newValue, upg.weapon)
                 );
               
         }
@@ -36,7 +37,9 @@ public class UpgradeSystem : MonoBehaviour
     public void ApplyUpgrade(WeaponStat stat, float change, Weapon weapon)
     {
         OnStatusChange?.Invoke(false);
-        player.weapons[player.weapons.IndexOf(weapon)].stats[stat] *= change;
+        
+        player.weapons[player.weapons.IndexOf(weapon)].stats[stat] = change;
+        weapon.ApplyStats();
         Debug.Log("Stat: " + stat);
         Debug.Log("Stat Value New: " + player.weapons[player.weapons.IndexOf(weapon)].stats[stat]);
         //player.stats[stat] *= change;

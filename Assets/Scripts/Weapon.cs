@@ -12,6 +12,8 @@ public enum WeaponStat
     CritChance,
     CritDamage,
     ProjectileSpeed,
+    ProjectileCount,
+    ProjectileSize,
 }
 
 [System.Serializable]
@@ -26,6 +28,7 @@ public class Weapon : MonoBehaviour
     public float cooldown = .01f;
     public float currentCooldown = .01f;
     public List<WeaponStatEntry> weaponStats;
+    public List<Projectile> projectiles = new List<Projectile>();
    
     public Dictionary<WeaponStat, float> stats = new()
     {
@@ -34,13 +37,13 @@ public class Weapon : MonoBehaviour
         { WeaponStat.ProjectileSpeed, 25f },
         { WeaponStat.CritChance, 1.00f },
         { WeaponStat.CritDamage, 1f },
-   
+        { WeaponStat.ProjectileSize, 1f },
     };
     public Texture weaponImage;
     public Player player;
     public string weaponName;
 
-    public void Start()
+    public virtual void Start()
     {
         foreach (var weapon in weaponStats)
         {
@@ -49,13 +52,24 @@ public class Weapon : MonoBehaviour
     }
     public virtual void Tick()
     {
-       
+        projectiles.RemoveAll(proj => proj == null);
         currentCooldown -= Time.deltaTime;
        
         if (currentCooldown <= 0f)
         {
             Fire();
             currentCooldown = (cooldown/player.stats[PlayerStat.FireRate])/stats[WeaponStat.FireRate];
+        }
+    }
+
+    public void ApplyStats()
+    {
+        foreach (Projectile proj in projectiles)
+        {
+            proj.critChance = (stats[WeaponStat.CritChance] * player.stats[PlayerStat.CritChance]) - 1;
+            proj.critDamage = stats[WeaponStat.CritDamage] * player.stats[PlayerStat.CritDamage];
+            proj.transform.localScale = proj.originalSize* new Vector3(stats[WeaponStat.ProjectileSize], stats[WeaponStat.ProjectileSize], stats[WeaponStat.ProjectileSize]);
+            proj.damage = stats[WeaponStat.Damage] * player.stats[PlayerStat.Damage];
         }
     }
     public virtual Projectile Fire()
@@ -76,9 +90,10 @@ public class Weapon : MonoBehaviour
         clone.weapon = this;
         clone.critChance = (stats[WeaponStat.CritChance] * player.stats[PlayerStat.CritChance])-1;
         clone.critDamage = stats[WeaponStat.CritDamage] * player.stats[PlayerStat.CritDamage];
-        
+        clone.transform.localScale *= stats[WeaponStat.ProjectileSize];
         clone.damage = stats[WeaponStat.Damage] * player.stats[PlayerStat.Damage];
         clone.direction = player.aimPosition.normalized  * stats[WeaponStat.ProjectileSpeed];
+        projectiles.Add(clone);
         return clone;
     }
 }

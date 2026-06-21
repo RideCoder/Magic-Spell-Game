@@ -1,37 +1,64 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+public enum UpgradeType {
+    Multiplicative,
+    Additive
+}
+
+
 public class Upgrade : MonoBehaviour
 {
 
     public WeaponStat stat;
-    public float change;
+    public float newValue;
     public Player player;
     public Weapon weapon;
-    public void Start()
-    {
-        player = FindFirstObjectByType<Player>();
-       // RandomizeStats();
-        
-    }
+  
+    private Dictionary<WeaponStat, UpgradeType> types = new Dictionary<WeaponStat, UpgradeType>()
+        {
+            {WeaponStat.ProjectileSpeed, UpgradeType.Multiplicative},
+            {WeaponStat.CritDamage, UpgradeType.Multiplicative},
+            {WeaponStat.FireRate, UpgradeType.Multiplicative},
+            {WeaponStat.Damage, UpgradeType.Multiplicative},
+            {WeaponStat.CritChance, UpgradeType.Multiplicative},
+            {WeaponStat.ProjectileCount, UpgradeType.Additive},
+            {WeaponStat.ProjectileSize, UpgradeType.Multiplicative},
+        };
+   
+    
     public void RandomizeStats()
     {
-      
+
         player = FindFirstObjectByType<Player>();
         //Gets random weapon from player
         weapon = player.weapons[UnityEngine.Random.Range(0, player.weapons.Count)];
         //Debug.Log(weapon);
         //Gets random weapon stat index from weapon chosen
-        stat = weapon.stats.ElementAt(UnityEngine.Random.Range(0,weapon.stats.Count)).Key;
+        stat = weapon.stats.ElementAt(UnityEngine.Random.Range(0, weapon.stats.Count)).Key;
+        
         Debug.Log("Original Stat" + stat);
-
-      
-        change = UnityEngine.Random.Range(1.08f, 1.16f);
+        Debug.Log(types.Count);
+    
+        float change = 1f;
+        if (types[stat] == UpgradeType.Multiplicative)
+        {
+             change = UnityEngine.Random.Range(1.08f, 1.16f);
+            newValue = player.weapons[player.weapons.IndexOf(weapon)].stats[stat] * change;
+        }
+        else
+        {
+            change = 1;
+            newValue = player.weapons[player.weapons.IndexOf(weapon)].stats[stat] + change;
+        }
+        
 
         GetComponentInChildren<TMP_Text>().text = weapon.weaponName+ " "+stat.ToString() + " "+ change.ToString() + "%";  
 

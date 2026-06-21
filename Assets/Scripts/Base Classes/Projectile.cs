@@ -12,6 +12,7 @@ public class Projectile : MonoBehaviour
     public float timeExisted = 0f;
     public float critChance = 0.04f;
     public float critDamage = 2f;
+    public float originalSize = 0.25f;
     public int index = 0;
     public int count = 0;
     public List<IProjectileEffect> items = new List<IProjectileEffect>();
@@ -23,10 +24,10 @@ public class Projectile : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
         
-       // transform.eulerAngles = new Vector3(transform.eulerAngles.x, Mathf.Atan2(transform.position.x - Player.cam.transform.position.x, transform.position.z - Player.cam.transform.position.z) * Mathf.Rad2Deg, 0);
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, Mathf.Atan2(transform.position.x - Player.cam.transform.position.x, transform.position.z - Player.cam.transform.position.z) * Mathf.Rad2Deg, transform.eulerAngles.z);
     }
     private void FixedUpdate()
     {
