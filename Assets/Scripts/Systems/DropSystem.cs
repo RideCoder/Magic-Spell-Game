@@ -17,7 +17,7 @@ public class DropSystem : MonoBehaviour
     {
         GameObject dropClone = Instantiate(drops[0]);
         dropClone.transform.position = enemy.transform.position;
-        if (Random.Range(0, 50) == 5)
+        if (Random.Range(0, 50) == 51)
         {
             GameObject dropClone2 = Instantiate(drops[1]);
             dropClone2.transform.position = enemy.transform.position;
