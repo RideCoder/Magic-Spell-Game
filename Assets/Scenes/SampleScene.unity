@@ -2700,71 +2700,6 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
---- !u!1001 &354310235
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1102021687409919273, guid: e8b27410e6c841e4bb77845a464f7928, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 5.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1102021687409919273, guid: e8b27410e6c841e4bb77845a464f7928, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.52
-      objectReference: {fileID: 0}
-    - target: {fileID: 1102021687409919273, guid: e8b27410e6c841e4bb77845a464f7928, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1102021687409919273, guid: e8b27410e6c841e4bb77845a464f7928, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1102021687409919273, guid: e8b27410e6c841e4bb77845a464f7928, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1102021687409919273, guid: e8b27410e6c841e4bb77845a464f7928, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1102021687409919273, guid: e8b27410e6c841e4bb77845a464f7928, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1102021687409919273, guid: e8b27410e6c841e4bb77845a464f7928, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1102021687409919273, guid: e8b27410e6c841e4bb77845a464f7928, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1102021687409919273, guid: e8b27410e6c841e4bb77845a464f7928, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3814279292963482672, guid: e8b27410e6c841e4bb77845a464f7928, type: 3}
-      propertyPath: m_Name
-      value: Bottle (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5984423393519390560, guid: e8b27410e6c841e4bb77845a464f7928, type: 3}
-      propertyPath: weapon
-      value: 
-      objectReference: {fileID: 1493965297233618815, guid: 642fec477b2806b4d8a21480a7852129, type: 3}
-    - target: {fileID: 6165713677591322874, guid: e8b27410e6c841e4bb77845a464f7928, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 3b5cc91c3bf8cf74391252247f52fb59, type: 2}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e8b27410e6c841e4bb77845a464f7928, type: 3}
 --- !u!1 &374286730
 GameObject:
   m_ObjectHideFlags: 0
@@ -3572,6 +3507,11 @@ MonoBehaviour:
   - {fileID: 1283207902}
   - {fileID: 971862743}
   - {fileID: 1661468637}
+  allowedWeapons:
+  - {fileID: -7493225668477092465, guid: 95da7a8ddb65a9746a7eef8de3af4897, type: 3}
+  - {fileID: -1623071095997976172, guid: 70f1921f7e2c0944994d072b2591944c, type: 3}
+  - {fileID: -1623071095997976172, guid: 3e657c2fe7a1e834c8af7a2eeabdc11c, type: 3}
+  - {fileID: 1493965297233618815, guid: 642fec477b2806b4d8a21480a7852129, type: 3}
   player: {fileID: 859197735}
 --- !u!1 &463756562
 GameObject:
@@ -3734,10 +3674,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.85
-  m_fontSizeBase: 24
+  m_fontSize: 7
+  m_fontSizeBase: 7
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -5339,6 +5279,8 @@ MonoBehaviour:
   newValue: 0
   player: {fileID: 0}
   weapon: {fileID: 0}
+  upgSystem: {fileID: 0}
+  addWeapon: 0
 --- !u!114 &971862743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6047,10 +5989,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaveSystem
   waves:
-  - duration: 300
+  - duration: 30
     waveInstances:
     - enemy: {fileID: 2803748134255386522, guid: f9fb600054500c440b581be76482c055, type: 3}
-      spawnTime: 0.5
+      spawnTime: 2
       time: 0
       spawnAmount: 1
   - duration: 60
@@ -6071,12 +6013,18 @@ MonoBehaviour:
       spawnTime: 0.5
       time: 0
       spawnAmount: 1
-  - duration: 8999
+  - duration: 90
     waveInstances:
     - enemy: {fileID: 2803748134255386522, guid: f9fb600054500c440b581be76482c055, type: 3}
       spawnTime: 0.25
       time: 0
       spawnAmount: 1
+  - duration: 90
+    waveInstances:
+    - enemy: {fileID: 2803748134255386522, guid: f9fb600054500c440b581be76482c055, type: 3}
+      spawnTime: 0.25
+      time: 0
+      spawnAmount: 2
   maxWaves: 0
   currentWave: 0
   timer: 30
@@ -9916,8 +9864,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 7
+  m_fontSizeBase: 7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -10461,6 +10409,8 @@ MonoBehaviour:
   newValue: 0
   player: {fileID: 0}
   weapon: {fileID: 0}
+  upgSystem: {fileID: 0}
+  addWeapon: 0
 --- !u!43 &1392917685
 Mesh:
   m_ObjectHideFlags: 0
@@ -10901,8 +10851,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 7
+  m_fontSizeBase: 7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -11345,63 +11295,6 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
---- !u!1001 &1504481030
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1102021687409919273, guid: e8b27410e6c841e4bb77845a464f7928, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1102021687409919273, guid: e8b27410e6c841e4bb77845a464f7928, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.52
-      objectReference: {fileID: 0}
-    - target: {fileID: 1102021687409919273, guid: e8b27410e6c841e4bb77845a464f7928, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1102021687409919273, guid: e8b27410e6c841e4bb77845a464f7928, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1102021687409919273, guid: e8b27410e6c841e4bb77845a464f7928, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1102021687409919273, guid: e8b27410e6c841e4bb77845a464f7928, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1102021687409919273, guid: e8b27410e6c841e4bb77845a464f7928, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1102021687409919273, guid: e8b27410e6c841e4bb77845a464f7928, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1102021687409919273, guid: e8b27410e6c841e4bb77845a464f7928, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1102021687409919273, guid: e8b27410e6c841e4bb77845a464f7928, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3814279292963482672, guid: e8b27410e6c841e4bb77845a464f7928, type: 3}
-      propertyPath: m_Name
-      value: Bottle
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e8b27410e6c841e4bb77845a464f7928, type: 3}
 --- !u!1 &1510272480
 GameObject:
   m_ObjectHideFlags: 0
@@ -12191,6 +12084,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DropSystem
   drops:
   - {fileID: 7693403495769472902, guid: 49ce160c79a87954b92ceef33a5b84aa, type: 3}
+  - {fileID: 3814279292963482672, guid: b127372dd2a7a3040b162dd7ea37e961, type: 3}
 --- !u!1 &1643097148
 GameObject:
   m_ObjectHideFlags: 0
@@ -12681,6 +12575,8 @@ MonoBehaviour:
   newValue: 0
   player: {fileID: 0}
   weapon: {fileID: 0}
+  upgSystem: {fileID: 0}
+  addWeapon: 0
 --- !u!114 &1661468637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19289,8 +19185,6 @@ SceneRoots:
   - {fileID: 463756563}
   - {fileID: 1784382091}
   - {fileID: 1613308385}
-  - {fileID: 1504481030}
-  - {fileID: 354310235}
   - {fileID: 935926014}
   - {fileID: 1957244213}
   - {fileID: 1796669748}

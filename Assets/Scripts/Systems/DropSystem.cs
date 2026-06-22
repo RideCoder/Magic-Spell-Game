@@ -15,13 +15,13 @@ public class DropSystem : MonoBehaviour
   
     public void Drop(Enemy enemy)
     {
-        GameObject dropClone = Instantiate(drops[Random.Range(0, drops.Count)]);
+        GameObject dropClone = Instantiate(drops[0]);
         dropClone.transform.position = enemy.transform.position;
-        /*if (Random.Range(0, 10) == 5)
+        if (Random.Range(0, 50) == 5)
         {
-            GameObject dropClone = Instantiate(drops[Random.Range(0, drops.Count)]);
-            dropClone.transform.position = enemy.transform.position;
-        }*/
+            GameObject dropClone2 = Instantiate(drops[1]);
+            dropClone2.transform.position = enemy.transform.position;
+        }
     }
 
 }

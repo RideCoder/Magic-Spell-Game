@@ -55,7 +55,7 @@ MonoBehaviour:
   - stat: 4
     value: 50
   - stat: 7
-    value: 5
+    value: 0
   projectiles: []
   weaponImage: {fileID: 2800000, guid: 2badcee165cfd394f81316ac52906e31, type: 3}
   player: {fileID: 0}

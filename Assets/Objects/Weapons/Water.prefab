@@ -47,5 +47,10 @@ MonoBehaviour:
   projectile: {fileID: -4016434512282956031, guid: 361f61159050c3141862e2b2394f96c3, type: 3}
   cooldown: 1
   currentCooldown: 1
+  weaponStats:
+  - stat: 4
+    value: 25
+  projectiles: []
   weaponImage: {fileID: 2800000, guid: 0ee0a3f353bc6104cb1c551e0210b006, type: 3}
   player: {fileID: 0}
+  weaponName: Cheetos

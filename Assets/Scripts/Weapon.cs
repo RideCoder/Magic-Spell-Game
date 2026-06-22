@@ -67,10 +67,14 @@ public class Weapon : MonoBehaviour
     {
         foreach (Projectile proj in projectiles)
         {
-            proj.critChance = (stats[WeaponStat.CritChance] * player.stats[PlayerStat.CritChance]) - 1;
-            proj.critDamage = stats[WeaponStat.CritDamage] * player.stats[PlayerStat.CritDamage];
-            proj.transform.localScale = proj.originalSize* new Vector3(stats[WeaponStat.ProjectileSize], stats[WeaponStat.ProjectileSize], stats[WeaponStat.ProjectileSize]);
-            proj.damage = stats[WeaponStat.Damage] * player.stats[PlayerStat.Damage];
+
+            if (proj != null)
+            {
+                proj.critChance = (stats[WeaponStat.CritChance] * player.stats[PlayerStat.CritChance]) - 1;
+                proj.critDamage = stats[WeaponStat.CritDamage] * player.stats[PlayerStat.CritDamage];
+                proj.transform.localScale = proj.originalSize * new Vector3(stats[WeaponStat.ProjectileSize], stats[WeaponStat.ProjectileSize], stats[WeaponStat.ProjectileSize]);
+                proj.damage = stats[WeaponStat.Damage] * player.stats[PlayerStat.Damage];
+            }
         }
     }
     public virtual Projectile Fire()

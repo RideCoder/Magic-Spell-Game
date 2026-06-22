@@ -108,6 +108,15 @@ MonoBehaviour:
   rb: {fileID: 0}
   damage: 5
   weapon: {fileID: 0}
+  timeExisted: 0
+  critChance: 0.04
+  critDamage: 2
+  originalSize: 0.25
+  index: 0
+  count: 0
+  pierce: 0
+  behaviors:
+  - {fileID: -1492391180775501057, guid: fc5bddb1a38508c49bb78e53b2655604, type: 3}
 --- !u!135 &6002994207341522
 SphereCollider:
   m_ObjectHideFlags: 0
