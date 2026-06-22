@@ -18,6 +18,7 @@ public class Projectile : MonoBehaviour
     public float pierce = 0f;
     public List<IProjectileEffect> items = new List<IProjectileEffect>();
     public List<ProjectileBehavior> behaviors = new List<ProjectileBehavior>();
+    public float lifeTime = 7f;
     void Start()
     {
      rb = GetComponent<Rigidbody>();      
@@ -25,6 +26,14 @@ public class Projectile : MonoBehaviour
     }
 
     // Update is called once per frame
+    public void LateUpdate()
+    {
+        lifeTime -= Time.deltaTime;
+        if (lifeTime <= 0f)
+        {
+            Destroy(gameObject);
+        }
+    }
     public virtual void Update()
     {
         

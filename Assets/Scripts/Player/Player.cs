@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public List<Weapon> weapons;
     public Vector3 aimPosition;
+    public Enemy enemyLookingAt;
     public static event Action<float,float, float> OnHealthUpdated;
     public static event Action<List<Hand>> OnHandAdded;
     public static event Action<List<Weapon>, Weapon, int> OnWeaponAdded;
@@ -103,6 +104,7 @@ public class Player : MonoBehaviour
 
                         if (offset.sqrMagnitude < closest)
                         {
+                            enemyLookingAt = hit.collider.GetComponent<Enemy>(); 
                             aimPosition = offset;
                             closest = offset.sqrMagnitude;
                         }
