@@ -1,36 +1,27 @@
-
-
-
 using System;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 [Serializable]
 public class WaveInstance
 {
-    public Enemy enemy;
+    public string enemy;        // name/id from JSON
     public float spawnTime;
     public float time;
     public float spawnAmount;
 
+    [NonSerialized] public Enemy enemyRef;   // resolved at load, not from JSON
 
     public void Spawn()
     {
-
         for (int i = 0; i < spawnAmount; i++)
         {
-           
             Vector2 randomDir = UnityEngine.Random.insideUnitCircle.normalized;
             float distance = UnityEngine.Random.Range(10f, 15f);
             Vector3 spawnPos = Player.cam.transform.position +
                    new Vector3(randomDir.x, 0, randomDir.y) * distance;
-
-            EnemyManager.Instance.SpawnEnemy(enemy, spawnPos);
-            
-          
+            EnemyManager.Instance.SpawnEnemy(enemyRef, spawnPos);
         }
-
     }
 }
 
@@ -41,27 +32,60 @@ public class Wave
     public List<WaveInstance> waveInstances = new List<WaveInstance>();
 }
 
+[Serializable]
+public class WaveConfig
+{
+    public List<Wave> waves = new List<Wave>();
+}
+
 public class WaveSystem : MonoBehaviour
 {
+    [Header("JSON")]
+    public TextAsset waveJson;              // drag your waves.json here
+
+    [Header("Enemy Lookup")]
+    public Enemy[] enemyPrefabs;            // assign all Enemy types here
+
     public List<Wave> waves = new List<Wave>();
     public int maxWaves;
     public static event Action<float> waveDuration;
     public int currentWave;
     public float timer = 30f;
+
     public void Start()
     {
+        LoadWaves();
         maxWaves = waves.Count;
         currentWave = 1;
-        timer = waves[currentWave-1].duration;
+        timer = waves[currentWave - 1].duration;
+    }
 
+    void LoadWaves()
+    {
+        WaveConfig config = JsonUtility.FromJson<WaveConfig>(waveJson.text);
+        waves = config.waves;
 
+        // build name -> Enemy map
+        var map = new Dictionary<string, Enemy>();
+        foreach (Enemy e in enemyPrefabs)
+            if (e != null) map[e.name] = e;
+
+        // resolve every instance's enemy reference
+        foreach (Wave w in waves)
+            foreach (WaveInstance inst in w.waveInstances)
+            {
+                if (map.TryGetValue(inst.enemy, out Enemy found))
+                    inst.enemyRef = found;
+                else
+                    Debug.LogWarning($"No Enemy prefab named '{inst.enemy}'");
+            }
     }
 
     public void Update()
     {
         timer -= Time.deltaTime;
-        
         waveDuration?.Invoke(timer);
+
         if (currentWave > maxWaves)
             return;
 
@@ -77,24 +101,11 @@ public class WaveSystem : MonoBehaviour
 
         if (timer <= 0f)
         {
-
             if (currentWave < maxWaves)
             {
                 currentWave++;
-
-           
                 timer = waves[currentWave - 1].duration;
             }
-            
-           
         }
-        /*waves[currentWave - 1].duration -= Time.deltaTime;
-
-        if (waves[currentWave-1].duration <= 0)
-        {
-            currentWave++;
-            EnemySystem.Instance.NextWave(currentWave);
-        }*/
-
     }
 }

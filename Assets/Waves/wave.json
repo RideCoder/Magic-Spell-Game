@@ -1,0 +1,15 @@
+{
+  "waves": [
+    {
+      "duration": 30,
+      "waveInstances": [
+        {
+          "enemy": "Pumpkin",
+          "spawnTime": 1,
+          "time": 0,
+          "spawnAmount": 1
+        }
+      ]
+    }
+  ]
+}

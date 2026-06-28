@@ -1,0 +1,32 @@
+{
+  "waves": [
+    {
+      "duration": 20,
+      "waveInstances": [
+        {
+          "enemy": "Strong Pumpkin",
+          "spawnTime": 2,
+          "time": 0,
+          "spawnAmount": 1
+        },
+        {
+          "enemy": "Pumpkin",
+          "spawnTime": 2,
+          "time": 0,
+          "spawnAmount": 1
+        }
+      ]
+    },
+    {
+      "duration": 20,
+      "waveInstances": [
+        {
+          "enemy": "Spikey",
+          "spawnTime": 2,
+          "time": 0,
+          "spawnAmount": 1
+        }
+      ]
+    }
+  ]
+}

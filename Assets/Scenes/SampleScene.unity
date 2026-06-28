@@ -5117,7 +5117,7 @@ PrefabInstance:
     - target: {fileID: 5984423393519390560, guid: e8b27410e6c841e4bb77845a464f7928, type: 3}
       propertyPath: weapon
       value: 
-      objectReference: {fileID: -7493225668477092465, guid: 95da7a8ddb65a9746a7eef8de3af4897, type: 3}
+      objectReference: {fileID: -1623071095997976172, guid: 70f1921f7e2c0944994d072b2591944c, type: 3}
     - target: {fileID: 6165713677591322874, guid: e8b27410e6c841e4bb77845a464f7928, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -6070,43 +6070,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7552c9d1c1409294d98467dbd650ff9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaveSystem
-  waves:
-  - duration: 30
-    waveInstances:
-    - enemy: {fileID: 2803748134255386522, guid: f9fb600054500c440b581be76482c055, type: 3}
-      spawnTime: 2
-      time: 0
-      spawnAmount: 1
-  - duration: 60
-    waveInstances:
-    - enemy: {fileID: 2803748134255386522, guid: f9fb600054500c440b581be76482c055, type: 3}
-      spawnTime: 3
-      time: 0
-      spawnAmount: 3
-  - duration: 30
-    waveInstances:
-    - enemy: {fileID: 2803748134255386522, guid: f9fb600054500c440b581be76482c055, type: 3}
-      spawnTime: 1.5
-      time: 0
-      spawnAmount: 2
-  - duration: 60
-    waveInstances:
-    - enemy: {fileID: 2803748134255386522, guid: f9fb600054500c440b581be76482c055, type: 3}
-      spawnTime: 0.5
-      time: 0
-      spawnAmount: 1
-  - duration: 90
-    waveInstances:
-    - enemy: {fileID: 2803748134255386522, guid: f9fb600054500c440b581be76482c055, type: 3}
-      spawnTime: 0.25
-      time: 0
-      spawnAmount: 1
-  - duration: 90
-    waveInstances:
-    - enemy: {fileID: 2803748134255386522, guid: f9fb600054500c440b581be76482c055, type: 3}
-      spawnTime: 0.25
-      time: 0
-      spawnAmount: 2
+  waveJson: {fileID: 4900000, guid: 5f2d0a72fe7df1d479a9eb3c18e39300, type: 3}
+  enemyPrefabs:
+  - {fileID: 2803748134255386522, guid: f9fb600054500c440b581be76482c055, type: 3}
+  - {fileID: 2803748134255386522, guid: 25312d88a370f31428f30c891f588d86, type: 3}
+  waves: []
   maxWaves: 0
   currentWave: 0
   timer: 30

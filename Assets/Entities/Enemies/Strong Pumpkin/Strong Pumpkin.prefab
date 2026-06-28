@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5825835265727292551}
   - component: {fileID: 2803748134255386522}
   m_Layer: 0
-  m_Name: Pumpkin
+  m_Name: Strong Pumpkin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,8 +28,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -27.6, y: 7.07, z: -2.39}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6922395731976176044}
   m_Father: {fileID: 0}
@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdce30df7761ddb499d46a98434f55f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  health: 15
+  health: 150
   damage: 15
   behavior:
   - {fileID: 8166264567247172988, guid: 35fca1f6eaa931b4a90c091471f5d52e, type: 3}
@@ -145,7 +145,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f5fc49027c2e2c84787771ced3defd35, type: 2}
+  - {fileID: 2100000, guid: ff6564a81ac7c0449af55a4ab93e6310, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
